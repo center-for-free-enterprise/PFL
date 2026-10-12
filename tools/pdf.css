@@ -49,7 +49,7 @@ h1,h2,h3,h4{font-family:"Inter Tight","Inter",sans-serif;font-weight:800;letter-
 /* body */
 .prose h2{font-size:20pt;line-height:1.15;margin:0 0 5mm;break-before:page}
 .prose h2 .eyebrow-rule{display:flex;align-items:center;font:700 8pt "Inter";letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:4mm;string-set:section content(text)}
-.prose h2 .eyebrow-rule::after{content:"";flex:1;height:.6pt;background:var(--orange);margin-left:4mm}
+.prose h2 .eyebrow-rule::after{content:"";flex:1;height:1.2pt;background:var(--orange);margin-left:4mm}
 .prose h2 .t{display:inline;background:var(--navy);color:#fff;padding:1.2mm 4mm 1.8mm;font-size:21pt;line-height:1.55;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .prose h2:not(:has(.t)){string-set:section content(text)}
 .prose h3{font-size:13pt;margin:6mm 0 1.5mm;break-after:avoid}

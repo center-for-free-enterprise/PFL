@@ -97,7 +97,7 @@ This is why financial advisors repeat the same advice endlessly: start early. Th
 **Key takeaway:** Risk and return are linked: higher potential rewards come with higher risk. Your time horizon and risk tolerance should guide how you invest. Compound interest rewards patience and punishes delay.
 :::
 
-# Section 3: Two Big Financial Decisions --- Student Loans and Mortgages
+# Section 3: Student Loans and Mortgages
 
 Before talking about investment products and retirement accounts, it is worth addressing two of the largest financial commitments most people face: paying for college and buying a home. Both involve borrowing significant amounts of money, and both have long-term consequences for your financial health. Understanding them early puts you in a far better position to make good decisions.
 
