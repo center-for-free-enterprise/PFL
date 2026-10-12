@@ -14,25 +14,25 @@ window.PFL = (function () {
       foot_2: "Results are simplified estimates. They rest on stated assumptions, leave out fees and taxes unless shown, and are rounded. Real outcomes can differ in important ways. Always read official disclosures before you sign or invest.",
       foot_3: "Nothing you type here is saved or sent anywhere; the math runs in your browser. Only your language choice is remembered on this device.",
       src_h: "Official sources",
-      src_fsa: "Federal Student Aid loan simulator (U.S. Department of Education)",
-      src_auto: "Consumer Financial Protection Bureau: auto loans",
-      src_home: "Consumer Financial Protection Bureau: buying a home",
-      src_investor: "Investor.gov: saving and investing (U.S. Securities and Exchange Commission)",
-      src_cfpb: "Consumer Financial Protection Bureau: money topics",
-      src_cards: "Consumer Financial Protection Bureau: credit cards",
+      src_fsa: "Loan simulator from the U.S. Department of Education",
+      src_auto: "Auto loans, from the Consumer Financial Protection Bureau",
+      src_home: "Buying a home, from the Consumer Financial Protection Bureau",
+      src_investor: "Saving and investing, from the U.S. Securities and Exchange Commission",
+      src_cfpb: "Money topics from the Consumer Financial Protection Bureau",
+      src_cards: "Credit cards, from the Consumer Financial Protection Bureau",
       src_irs: "IRS Tax Withholding Estimator",
-      src_investorcalc: "SEC compound interest calculator",
-      src_acr: "Free credit reports (the only official site)",
-      src_scores: "Consumer Financial Protection Bureau: credit reports and scores",
-      src_dol: "U.S. Department of Labor: retirement plans",
-      src_irsret: "IRS: retirement plans and current contribution limits",
+      src_investorcalc: "Compound interest calculator from the SEC",
+      src_acr: "Free credit reports: the only official site",
+      src_scores: "Credit reports and scores, from the Consumer Financial Protection Bureau",
+      src_dol: "Retirement plans, from the U.S. Department of Labor",
+      src_irsret: "Retirement plans and current contribution limits, from the IRS",
       credit: "Center for Free Enterprise, Woody L. Hunt College of Business, UTEP · c4fe@utep.edu",
       logo_alt: "UTEP Center for Free Enterprise, Woody L. Hunt College of Business",
       print_btn: "Print results",
       share_btn: "Share", copy_btn: "Copy link", copied: "Link copied", copy_fail: "Copy the address from your browser's address bar",
       share_text: "A free financial literacy tool from UTEP's Center for Free Enterprise",
       print_note: (url, date) => "Printed from " + url + " on " + date + ". For learning only; not financial advice.",
-      for_teachers: "For teachers"
+      for_teachers: "For teachers", teach_box: "Classroom activities, a QR code for your slides, and the workshop readings.", teach_go: "Open the teacher guide →", foot_unit: "Center for Free Enterprise · Woody L. Hunt College of Business · The University of Texas at El Paso"
     },
     es: {
       eyebrow: "Center for Free Enterprise · The University of Texas at El Paso",
@@ -45,25 +45,25 @@ window.PFL = (function () {
       foot_2: "Los resultados son estimaciones simplificadas. Se basan en los supuestos indicados, no incluyen cargos ni impuestos salvo que se muestren, y están redondeados. Los resultados reales pueden ser muy distintos. Lee siempre la información oficial antes de firmar o invertir.",
       foot_3: "Nada de lo que escribes aquí se guarda ni se envía; los cálculos se hacen en tu navegador. Solo se recuerda en este dispositivo el idioma que elegiste.",
       src_h: "Fuentes oficiales",
-      src_fsa: "Simulador de préstamos de Federal Student Aid (Departamento de Educación de EE. UU.)",
-      src_auto: "Oficina para la Protección Financiera del Consumidor: préstamos de auto",
-      src_home: "Oficina para la Protección Financiera del Consumidor: comprar una casa",
-      src_investor: "Investor.gov: ahorro e inversión (Comisión de Bolsa y Valores de EE. UU.)",
-      src_cfpb: "Oficina para la Protección Financiera del Consumidor: temas de dinero",
-      src_cards: "Oficina para la Protección Financiera del Consumidor: tarjetas de crédito",
+      src_fsa: "Simulador de préstamos del Departamento de Educación de EE. UU.",
+      src_auto: "Préstamos de auto, de la Oficina para la Protección Financiera del Consumidor",
+      src_home: "Comprar una casa, de la Oficina para la Protección Financiera del Consumidor",
+      src_investor: "Ahorro e inversión, de la Comisión de Bolsa y Valores de EE. UU.",
+      src_cfpb: "Temas de dinero de la Oficina para la Protección Financiera del Consumidor",
+      src_cards: "Tarjetas de crédito, de la Oficina para la Protección Financiera del Consumidor",
       src_irs: "Estimador de retenciones del IRS",
       src_investorcalc: "Calculadora de interés compuesto de la SEC",
-      src_acr: "Reportes de crédito gratuitos (el único sitio oficial)",
-      src_scores: "Oficina para la Protección Financiera del Consumidor: reportes y puntajes de crédito",
-      src_dol: "Departamento de Trabajo de EE. UU.: planes de retiro",
-      src_irsret: "IRS: planes de retiro y límites de aportación vigentes",
+      src_acr: "Reportes de crédito gratuitos: el único sitio oficial",
+      src_scores: "Reportes y puntajes de crédito, de la Oficina para la Protección Financiera del Consumidor",
+      src_dol: "Planes de retiro, del Departamento de Trabajo de EE. UU.",
+      src_irsret: "Planes de retiro y límites de aportación vigentes, del IRS",
       credit: "Center for Free Enterprise, Woody L. Hunt College of Business, UTEP · c4fe@utep.edu",
       logo_alt: "UTEP Center for Free Enterprise, Woody L. Hunt College of Business",
       print_btn: "Imprimir resultados",
       share_btn: "Compartir", copy_btn: "Copiar enlace", copied: "Enlace copiado", copy_fail: "Copia la dirección desde la barra de tu navegador",
       share_text: "Una herramienta gratuita de educación financiera del Center for Free Enterprise de UTEP",
       print_note: (url, date) => "Impreso desde " + url + " el " + date + ". Solo con fines educativos; no es asesoría financiera.",
-      for_teachers: "Para docentes"
+      for_teachers: "Para docentes", teach_box: "Actividades para la clase, un código QR para tus diapositivas y las lecturas del taller.", teach_go: "Abrir la guía docente →", foot_unit: "Center for Free Enterprise · Woody L. Hunt College of Business · The University of Texas at El Paso"
     }
   };
   /* Federal income tax, single filer. Update once a year (the IRS announces the next year's figures each October).
@@ -238,11 +238,14 @@ window.PFL = (function () {
     const footer = document.getElementById("site-footer");
     const src = (opt.sources || []).map(function (k) {
       const s = SOURCES[k];
-      return '<li><a href="' + s.href + '" target="_blank" rel="noopener">' + s.name + '</a> — <span data-i18n="' + s.key + '"></span></li>';
+      return '<li><a href="' + s.href + '" target="_blank" rel="noopener">' + s.name + '</a><span data-i18n="' + s.key + '"></span></li>';
     }).join("");
     footer.innerHTML =
       '<div class="wrap"><div><h3 data-i18n="foot_h"></h3><p data-i18n="foot_1"></p><p data-i18n="foot_2"></p><p data-i18n="foot_3"></p></div>' +
-      '<div><h3 data-i18n="src_h"></h3><ul>' + src + '</ul><p class="credit"><a href="teachers.html" data-i18n="for_teachers"></a></p><p class="credit" data-i18n="credit"></p></div></div>';
+      '<div class="foot-side">' + (src ? '<div><h3 data-i18n="src_h"></h3><ul class="sources">' + src + '</ul></div>' : '') +
+      (/teachers\.html$/.test(location.pathname) ? '' : '<a class="teach-box" href="teachers.html"><b data-i18n="for_teachers"></b><span data-i18n="teach_box"></span><em data-i18n="teach_go"></em></a>') +
+      '</div></div>' +
+      '<div class="foot-bar"><div class="wrap"><img src="assets/img/c4fe-logo-reverse.png" width="97" height="36" alt="UTEP Center for Free Enterprise"><span data-i18n="foot_unit"></span><a href="mailto:c4fe@utep.edu">c4fe@utep.edu</a></div></div>';
 
     header.querySelectorAll(".lang button").forEach(function (b) {
       b.addEventListener("click", function () { setLang(b.dataset.lang); });
