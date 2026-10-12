@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loan Calculator · C4FE</title>
+<meta name="description" content="See what a car loan, student loan, or mortgage really costs. A teaching tool from UTEP's Center for Free Enterprise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main class="wrap">
+  <div id="site-notice"></div>
+
+  <div class="tabs" role="tablist" aria-label="Loan type">
+    <button class="tab" role="tab" data-type="car" aria-selected="true" data-i18n="tab_car">Car loan</button>
+    <button class="tab" role="tab" data-type="student" aria-selected="false" data-i18n="tab_student">Student loan</button>
+    <button class="tab" role="tab" data-type="mortgage" aria-selected="false" data-i18n="tab_mortgage">Mortgage</button>
+  </div>
+
+  <div class="bench">
+    <form class="panel" id="form" autocomplete="off">
+      <h2 data-i18n="inputs_h"></h2>
+      <p class="sub" data-i18n="example_note"></p>
+      <div class="fields" id="fields"></div>
+    </form>
+
+    <div class="results">
+      <section class="panel" aria-live="polite">
+        <div class="headline">
+          <div>
+            <p class="sub" style="margin:0 0 6px" id="monthly-label"></p>
+            <div class="big" id="monthly"></div>
+          </div>
+          <dl class="breakdown" id="breakdown" hidden></dl>
+        </div>
+        <div class="tila" role="group" aria-labelledby="tila-cap">
+          <div class="tila-grid">
+            <div class="tila-cell"><b data-i18n="tila_apr"></b><span data-i18n="tila_apr_d"></span><strong id="t-apr"></strong></div>
+            <div class="tila-cell fc"><b data-i18n="tila_fc"></b><span data-i18n="tila_fc_d"></span><strong id="t-fc"></strong></div>
+            <div class="tila-cell"><b data-i18n="tila_af"></b><span data-i18n="tila_af_d"></span><strong id="t-af"></strong></div>
+            <div class="tila-cell"><b data-i18n="tila_tp"></b><span data-i18n="tila_tp_d"></span><strong id="t-tp"></strong></div>
+          </div>
+        </div>
+        <p class="tila-cap" id="tila-cap" data-i18n="tila_note"></p>
+      </section>
+
+      <div class="msgs" id="msgs"></div>
+
+      <section class="panel">
+        <h3 data-i18n="chart_h"></h3>
+        <div class="legend"><span><i style="background:var(--interest)"></i><span data-i18n="leg_int"></span></span><span><i style="background:var(--principal)"></i><span data-i18n="leg_pri"></span></span></div>
+        <div class="chartbox" id="chart"></div>
+        <p class="sub" data-i18n="chart_note"></p>
+      </section>
+
+      <section class="panel">
+        <h3 data-i18n="cmp_h"></h3>
+        <p class="sub" data-i18n="cmp_sub"></p>
+        <div class="tbl"><table id="cmp"></table></div>
+      </section>
+
+      <section class="panel takeaway">
+        <h3 data-i18n="take_h"></h3>
+        <p id="take"></p>
+        <p class="read" id="read"></p>
+      </section>
+
+      <section class="panel">
+        <details>
+          <summary data-i18n="sched_h"></summary>
+          <div class="tbl"><table id="sched"></table></div>
+        </details>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/loans.js"></script>
+</body>
+</html>

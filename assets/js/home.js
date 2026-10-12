@@ -1,0 +1,60 @@
+/* C4FE PFL — landing page text. Edit wording here. */
+(function () {
+const HOME_TEXT = {
+ en:{
+  title:"Personal Financial Literacy Tools",
+  lede:"Interactive calculators that go with the C4FE Personal Financial Literacy Workshop. Change the numbers and see how borrowing, saving, and investing play out.",
+  tools_h:"Tools",
+  live:"Available", soon:"Coming soon", open:"Open →",
+  s1:"Session 1", s2:"Session 2", s12:"Sessions 1 and 2",
+  loans_h:"Loan Calculator",
+  loans_p:"Car loans, student loans, and mortgages: the monthly payment, the total interest, and what a longer term really costs.",
+  budget_h:"Budget Simulator",
+  budget_p:"Turn a first-job salary into take-home pay and build a monthly budget that adds up.",
+  savings_h:"Saving for a Goal",
+  savings_p:"How much to save each month, and for how long, to buy a car or make a down payment on a home.",
+  invest_h:"Investing and Compound Growth",
+  invest_p:"Why starting early matters, what fees cost over time, and why returns are never a straight line.",
+  credit_h:"Credit Cards",
+  credit_p:"What happens when you pay only the minimum, and how long it takes to get out of card debt.",
+  score_h:"Credit Score Explorer",
+  score_p:"How the five credit score factors are weighted, how utilization works, and why one late payment hurts so much.",
+  match_h:"Paycheck and Employer Match",
+  match_p:"How a 401(k) contribution changes your paycheck, how much the employer match adds, and traditional versus Roth.",
+  teach_h:"For teachers",
+  teach_p:"Setup tips, a QR code for your slides, a 10-minute activity for each tool, and a suggested sequence for the workshop.",
+  teach_go:"Open the teacher guide →",
+  about_h:"About the Center for Free Enterprise",
+  about_1:"The Center for Free Enterprise (C4FE) is part of the Woody L. Hunt College of Business at The University of Texas at El Paso. The Center supports teaching, research, and public programs on how markets, institutions, and individual choices shape economic opportunity in El Paso and beyond.",
+  about_2:"Its Personal Financial Literacy Workshop brings high school seniors to the UTEP campus for three sessions on budgeting, credit, borrowing, saving, and investing. The tools on this site go with the workshop readings, so students can try the ideas with their own numbers."
+ },
+ es:{
+  title:"Herramientas de educación financiera personal",
+  lede:"Calculadoras interactivas que acompañan el Taller de Educación Financiera Personal del C4FE. Cambia los números y descubre cómo funcionan los préstamos, el ahorro y la inversión.",
+  tools_h:"Herramientas",
+  live:"Disponible", soon:"Próximamente", open:"Abrir →",
+  s1:"Sesión 1", s2:"Sesión 2", s12:"Sesiones 1 y 2",
+  loans_h:"Calculadora de préstamos",
+  loans_p:"Préstamos de auto, préstamos estudiantiles e hipotecas: el pago mensual, el total de intereses y lo que realmente cuesta un plazo más largo.",
+  budget_h:"Simulador de presupuesto",
+  budget_p:"Convierte el salario de tu primer empleo en ingreso neto y arma un presupuesto mensual que cuadre.",
+  savings_h:"Ahorrar para una meta",
+  savings_p:"Cuánto ahorrar cada mes, y por cuánto tiempo, para comprar un auto o dar el enganche de una casa.",
+  invest_h:"Inversión e interés compuesto",
+  invest_p:"Por qué importa empezar temprano, cuánto cuestan las comisiones con el tiempo y por qué los rendimientos nunca son una línea recta.",
+  credit_h:"Tarjetas de crédito",
+  credit_p:"Qué pasa si pagas solo el mínimo y cuánto tiempo toma salir de una deuda de tarjeta.",
+  score_h:"Explorador del puntaje de crédito",
+  score_p:"Cómo se ponderan los cinco factores del puntaje de crédito, cómo funciona el uso del crédito y por qué un solo pago atrasado afecta tanto.",
+  match_h:"Cheque de pago y aportación del empleador",
+  match_p:"Cómo una aportación al 401(k) cambia tu cheque de pago, cuánto agrega el empleador, y la diferencia entre tradicional y Roth.",
+  teach_h:"Para docentes",
+  teach_p:"Consejos de preparación, un código QR para tus diapositivas, una actividad de 10 minutos para cada herramienta y una secuencia sugerida para el taller.",
+  teach_go:"Abrir la guía para docentes →",
+  about_h:"Acerca del Center for Free Enterprise",
+  about_1:"El Center for Free Enterprise (C4FE) forma parte del Woody L. Hunt College of Business de The University of Texas at El Paso. El Centro apoya la enseñanza, la investigación y programas abiertos al público sobre cómo los mercados, las instituciones y las decisiones individuales influyen en las oportunidades económicas en El Paso y más allá.",
+  about_2:"Su Taller de Educación Financiera Personal reúne a estudiantes del último año de preparatoria en el campus de UTEP durante tres sesiones sobre presupuesto, crédito, préstamos, ahorro e inversión. Las herramientas de este sitio acompañan las lecturas del taller para que los estudiantes puedan probar las ideas con sus propios números."
+ }
+};
+PFL.init(HOME_TEXT,{home:true,titleKey:"title",ledeKey:"lede",sources:["fsa","cfpb","investor"]});
+})();

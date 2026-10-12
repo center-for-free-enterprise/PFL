@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Teachers · C4FE</title>
+<meta name="description" content="How to use the C4FE Personal Financial Literacy tools in class: setup, activities, and a suggested sequence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main class="wrap">
+  <div id="site-notice"></div>
+
+  <section class="panel setup prose">
+    <div>
+      <h2 data-i18n="setup_h"></h2>
+      <ul id="setup"></ul>
+    </div>
+    <div class="qr">
+      <img src="assets/img/qr-site.svg" width="160" height="160" alt="QR code for the site">
+      <span class="sub" style="margin:0" data-i18n="qr_cap"></span>
+      <code id="site-url"></code>
+    </div>
+  </section>
+
+  <h2 class="section-h" data-i18n="act_h"></h2>
+  <p class="sub" data-i18n="act_sub"></p>
+  <div class="acts" id="acts"></div>
+
+  <div class="two">
+    <section class="panel prose">
+      <h2 data-i18n="seq_h"></h2>
+      <ul id="seq"></ul>
+    </section>
+    <section class="panel prose">
+      <h2 data-i18n="know_h"></h2>
+      <ul id="know"></ul>
+    </section>
+  </div>
+
+  <section class="panel feedback" aria-labelledby="fb-h">
+    <div>
+      <h2 id="fb-h" data-i18n="fb_h"></h2>
+      <p data-i18n="fb_p"></p>
+      <ul id="fb-list"></ul>
+      <p class="sub" data-i18n="fb_privacy"></p>
+    </div>
+    <div class="fb-mail">
+      <a class="btn" id="fb-link" href="mailto:c4fe@utep.edu"><span data-i18n="fb_btn"></span></a>
+      <code>c4fe@utep.edu</code>
+      <button type="button" class="btn" id="fb-copy"><span data-i18n="fb_copy"></span></button>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/teach.js"></script>
+</body>
+</html>

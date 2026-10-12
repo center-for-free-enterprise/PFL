@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paycheck and Employer Match · C4FE</title>
+<meta name="description" content="See how a 401(k) contribution changes your paycheck and how much an employer match adds. A teaching tool from UTEP's Center for Free Enterprise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main class="wrap">
+  <div id="site-notice"></div>
+
+  <div class="bench" style="margin-top:22px">
+    <form class="panel" id="form" autocomplete="off">
+      <h2 data-i18n="inputs_h"></h2>
+      <p class="sub" data-i18n="example_note"></p>
+      <div class="fields" id="fields"></div>
+    </form>
+
+    <div class="results">
+      <section class="panel" aria-live="polite">
+        <h3 data-i18n="stub_h"></h3>
+        <p class="sub" style="margin:10px 0 6px" data-i18n="stub_net"></p>
+        <div class="big" id="net"></div>
+        <dl class="stub" id="stub"></dl>
+        <h3 style="margin-top:18px" data-i18n="acct_h"></h3>
+        <div class="stats" id="acct"></div>
+      </section>
+
+      <div class="msgs" id="msgs"></div>
+
+      <section class="panel">
+        <h3 id="lr-h"></h3>
+        <div class="stats" id="lr"></div>
+        <div class="legend" style="margin-top:14px"><span><i style="background:var(--principal)"></i><span data-i18n="leg_you"></span></span><span><i style="background:var(--interest)"></i><span data-i18n="leg_emp"></span></span></div>
+        <div class="chartbox" id="chart"></div>
+        <p class="assume" data-i18n="assume"></p>
+      </section>
+
+      <section class="panel takeaway">
+        <h3 data-i18n="take_h"></h3>
+        <p data-i18n="take"></p>
+        <p class="read" data-i18n="read"></p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/match.js"></script>
+</body>
+</html>
