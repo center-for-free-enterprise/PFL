@@ -31,7 +31,7 @@ en:{
  assume:"Simplified: your salary stays the same, investments grow at a steady rate (real returns go up and down), and taxes use 2026 federal rates for a single filer with the standard deduction. The IRS sets yearly contribution limits. A traditional account is taxed when you withdraw; the employer match usually is too.",
  take_h:"What this shows",
  take:"An employer match is part of your pay. If you don't contribute enough to get all of it, you are turning down money your employer already set aside for you. With a traditional 401(k), the contribution costs your paycheck less than it puts in, because it lowers your taxes now; with a Roth, you pay the tax now and withdraw tax-free later, which often suits people early in their careers. Either way, starting with your first job gives the money the most years to grow.",
- read:"Read more in your Session 2 materials: the section on retirement accounts (401(k), IRA, and Roth)."
+ read:"Read more in the Session 2 reading: the section on retirement accounts (401(k), IRA, and Roth)."
 },
 es:{
  title:"Cheque de pago y aportación del empleador",
@@ -60,7 +60,7 @@ es:{
  assume:"Simplificado: tu salario no cambia, las inversiones crecen a un ritmo constante (los rendimientos reales suben y bajan) y los impuestos usan las tasas federales de 2026 para una persona soltera con la deducción estándar. El IRS fija límites anuales de aportación. Una cuenta tradicional paga impuestos al retirar el dinero; la aportación del empleador normalmente también.",
  take_h:"Qué muestra esto",
  take:"La aportación del empleador es parte de tu sueldo. Si no aportas lo suficiente para recibirla completa, estás rechazando dinero que tu empleador ya apartó para ti. Con un 401(k) tradicional, la aportación le cuesta a tu cheque menos de lo que deposita, porque baja tus impuestos ahora; con un Roth pagas el impuesto hoy y retiras sin impuestos después, lo que suele convenir al inicio de la carrera. En ambos casos, empezar con tu primer empleo le da al dinero más años para crecer.",
- read:"Lee más en tus materiales de la Sesión 2: la sección sobre cuentas para el retiro (401(k), IRA y Roth)."
+ read:"Lee más en la lectura de la Sesión 2 (en inglés): la sección sobre cuentas para el retiro (401(k), IRA y Roth)."
 }};
 
 const STATE = {salary:50000, matchRate:100, matchCap:3, contrib:3, type:"trad", startAge:22, retireAge:65, growth:7};

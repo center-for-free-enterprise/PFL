@@ -29,7 +29,7 @@ en:{
  assume:"Simplified: interest is charged monthly at the APR divided by 12. Real cards charge daily interest on the average balance and may add fees.",
  take_h:"What this shows",
  take:"Minimum payments are set low on purpose. They shrink as the balance shrinks, so most of each payment goes to interest and the debt lasts for years. A fixed payment well above the minimum ends the debt much faster, and paying the full balance every month means the card costs nothing.",
- read:"Read more in your Session 1 materials: Section 5, “Credit Cards — Friend or Enemy?”"
+ read:"Read more in the Session 1 reading: Section 5, “Credit Cards — Friend or Enemy?”"
 },
 es:{
  title:"Tarjetas de crédito",
@@ -56,7 +56,7 @@ es:{
  assume:"Simplificado: el interés se cobra cada mes con la APR dividida entre 12. Las tarjetas reales cobran interés diario sobre el saldo promedio y pueden agregar cargos.",
  take_h:"Qué muestra esto",
  take:"Los pagos mínimos se fijan bajos a propósito. Bajan a medida que baja el saldo, así que la mayor parte de cada pago se va a intereses y la deuda dura años. Un pago fijo bastante mayor que el mínimo termina la deuda mucho antes, y pagar el saldo total cada mes significa que la tarjeta no te cuesta nada.",
- read:"Lee más en tus materiales de la Sesión 1: Sección 5, “Credit Cards — Friend or Enemy?”"
+ read:"Lee más en la lectura de la Sesión 1 (en inglés): Sección 5, “Credit Cards — Friend or Enemy?”"
 }};
 
 const STATE = {balance:1000, apr:24, payment:100};

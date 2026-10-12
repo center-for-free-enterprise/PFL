@@ -46,7 +46,7 @@ en:{
  msg_inq:"Several applications in a short time can signal risk to lenders. Apply for new credit only when you need it.",
  take_h:"What this shows",
  take:"Two habits drive most of a credit score: paying every bill on time and keeping card balances low compared with your limits. The rest rewards patience: an older history and a sensible mix of credit come with time. Your score is built slowly and can be damaged quickly, so protect your payment history above everything else.",
- read:"Read more in your Session 1 materials: Section 6, “Your Credit Score.”"
+ read:"Read more in the Session 1 reading: Section 6, “Your Credit Score.”"
 },
 es:{
  title:"Explorador del puntaje de crédito",
@@ -76,7 +76,7 @@ es:{
  msg_inq:"Varias solicitudes en poco tiempo pueden parecer una señal de riesgo. Solicita crédito nuevo solo cuando lo necesites.",
  take_h:"Qué muestra esto",
  take:"Dos hábitos explican la mayor parte del puntaje: pagar todas tus cuentas a tiempo y mantener saldos bajos en comparación con tus límites. El resto premia la paciencia: un historial más largo y una buena combinación de créditos llegan con el tiempo. El puntaje se construye despacio y se daña rápido, así que protege tu historial de pagos por encima de todo.",
- read:"Lee más en tus materiales de la Sesión 1: Sección 6, “Your Credit Score.”"
+ read:"Lee más en la lectura de la Sesión 1 (en inglés): Sección 6, “Your Credit Score.”"
 }};
 
 const STATE = {late:0, limit:1000, balance:200, close:false, closeLimit:500, years:1, types:1, inq:1};

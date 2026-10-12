@@ -33,7 +33,7 @@ en:{
  assume:"Assumptions: in a typical year-over-year path, stocks grow about 8% a year and bonds about 3%, before inflation, so the default mix of 80% stocks and 20% bonds grows about 7% a year, the figure used in the Session 2 reading. Stocks swing much more (about 18% in a typical year) than bonds (about 6%). The past does not guarantee the future, and taxes are not included.",
  take_h:"What this shows",
  take:"Time does more of the work than the amount you invest, which is why starting early matters more than any other choice you control. Fees look small but compound against you for decades. And returns are never a straight line: the band shows how differently the same plan can turn out, which is why investing is for money you won't need for many years.",
- read:"Read more in your Session 2 materials: “The Power of Compound Interest — Revisited,” Section 5, “Diversification,” and the section on common investing mistakes."
+ read:"Read more in the Session 2 reading: “The Power of Compound Interest, Revisited,” Section 5, “Diversification,” and the section on common investing mistakes."
 },
 es:{
  title:"Inversión e interés compuesto",
@@ -58,7 +58,7 @@ es:{
  assume:"Supuestos: en una trayectoria típica, las acciones crecen alrededor de 8% al año y los bonos alrededor de 3%, antes de inflación; así, la mezcla predeterminada de 80% acciones y 20% bonos crece cerca de 7% al año, la cifra que usa la lectura de la Sesión 2. Las acciones tienen altibajos mucho mayores (cerca de 18% en un año típico) que los bonos (cerca de 6%). El pasado no garantiza el futuro, y no se incluyen impuestos.",
  take_h:"Qué muestra esto",
  take:"El tiempo hace más trabajo que el monto que inviertes; por eso empezar temprano importa más que cualquier otra decisión que controlas. Las comisiones parecen pequeñas, pero se acumulan en tu contra durante décadas. Y los rendimientos nunca son una línea recta: la franja muestra qué tan distinto puede terminar el mismo plan, y por eso la inversión es para dinero que no necesitarás en muchos años.",
- read:"Lee más en tus materiales de la Sesión 2: “The Power of Compound Interest — Revisited,” Sección 5, “Diversification,” y la sección sobre errores comunes al invertir."
+ read:"Lee más en la lectura de la Sesión 2 (en inglés): “The Power of Compound Interest, Revisited,” Sección 5, “Diversification,” y la sección sobre errores comunes al invertir."
 }};
 
 const STATE = {monthly:100, start:0, startAge:18, retireAge:65, stocks:80, fee:0.10, real:false};

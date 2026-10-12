@@ -45,11 +45,11 @@ en:{
  sch_year:"Year", sch_int:"Interest paid", sch_pri:"Principal paid", sch_bal:"Still owed",
  take_h:"What this shows",
  take_car:"A longer term lowers the monthly payment but raises the total interest, often by thousands of dollars. Cars also lose value quickly, so on a 6- or 7-year loan you can end up owing more than the car is worth. A reliable used car on a shorter loan is usually the better deal.",
- read_car:"Read more in your Session 1 materials: Section 4, “Understanding Debt” (Types of Debt and How Amortization Works).",
+ read_car:"Read more in the Session 1 reading: Section 4, “Understanding Debt” (Types of Debt and How Amortization Works).",
  take_student:"With unsubsidized loans, interest starts the day the money is paid out, so you graduate owing more than you borrowed. Borrow only the gap between your costs and your aid. A common rule of thumb: keep your total student debt below your expected first-year salary.",
- read_student:"Read more in your Session 2 materials: Section 3, “Student Loans.”",
+ read_student:"Read more in the Session 2 reading: Section 3, “Student Loans and Mortgages.”",
  take_mortgage:"Owning a home costs more than the loan payment: there are property taxes, insurance, and PMI if you put down less than 20%. On a 30-year loan, the early payments are mostly interest. A bigger down payment or a shorter term cuts the total cost sharply.",
- read_mortgage:"Read more in your Session 2 materials: Section 3, “Mortgages — Buying a Home.”"
+ read_mortgage:"Read more in the Session 2 reading: Section 3, “Mortgages: Buying a Home.”"
 },
 es:{
  title:"Calculadora de préstamos",
@@ -94,11 +94,11 @@ es:{
  sch_year:"Año", sch_int:"Intereses pagados", sch_pri:"Capital pagado", sch_bal:"Saldo pendiente",
  take_h:"Qué muestra esto",
  take_car:"Un plazo más largo baja el pago mensual pero sube el total de intereses, a menudo por miles de dólares. Además, los autos pierden valor rápido, así que con un préstamo de 6 o 7 años puedes terminar debiendo más de lo que vale el auto. Un auto usado y confiable con un plazo más corto suele ser la mejor opción.",
- read_car:"Lee más en tus materiales de la Sesión 1: Sección 4, “Understanding Debt” (Types of Debt y How Amortization Works).",
+ read_car:"Lee más en la lectura de la Sesión 1 (en inglés): Sección 4, “Understanding Debt” (Types of Debt y How Amortization Works).",
  take_student:"En los préstamos no subsidiados, los intereses empiezan a correr desde el día en que recibes el dinero, así que te gradúas debiendo más de lo que pediste. Pide prestado solo la diferencia entre tus costos y tu ayuda financiera. Una regla práctica: que tu deuda estudiantil total no supere tu salario esperado del primer año.",
- read_student:"Lee más en tus materiales de la Sesión 2: Sección 3, “Student Loans.”",
+ read_student:"Lee más en la lectura de la Sesión 2 (en inglés): Sección 3, “Student Loans and Mortgages.”",
  take_mortgage:"Ser dueño de una casa cuesta más que el pago del préstamo: hay impuestos a la propiedad, seguro y PMI si tu enganche es menor al 20%. En una hipoteca a 30 años, los primeros pagos son casi todo intereses. Un enganche mayor o un plazo más corto reducen mucho el costo total.",
- read_mortgage:"Lee más en tus materiales de la Sesión 2: Sección 3, “Mortgages — Buying a Home.”"
+ read_mortgage:"Lee más en la lectura de la Sesión 2 (en inglés): Sección 3, “Mortgages: Buying a Home.”"
 }};
 
 const FIELDS = {
@@ -227,7 +227,7 @@ function compute(){
  $("sched").innerHTML=sr+"</tbody>";
 
  $("take").textContent=T("take_"+type);
- $("read").textContent=T("read_"+type);
+ $("read").textContent=T("read_"+type); $("read").href={car:"session-1.html#section-4-understanding-debt",student:"session-2.html#student-loans",mortgage:"session-2.html#mortgages-buying-a-home"}[type];
 }
 
 function niceStep(max){const raw=max/4, p=Math.pow(10,Math.floor(Math.log10(raw||1))), m=raw/p; return (m<=1?1:m<=2?2:m<=2.5?2.5:m<=5?5:10)*p;}
