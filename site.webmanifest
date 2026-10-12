@@ -1,0 +1,12 @@
+{
+  "name": "C4FE Personal Financial Literacy Tools",
+  "short_name": "PFL Tools",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#F6F6F4",
+  "theme_color": "#041E42",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

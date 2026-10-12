@@ -72,6 +72,10 @@ Page views are counted with [GoatCounter](https://www.goatcounter.com/) (no cook
 <script data-goatcounter="https://c4fe.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 ```
 
+## Favicon and app icons
+
+The site's own mark (a small orange bar chart on Midnight Pick) lives in `assets/icons/`: `favicon.svg` is the master; the PNGs, `favicon.ico`, and `site.webmanifest` are generated from it. Every page links them in `<head>` (the reading pages get them from the template in `tools/build_readings.py`). UTEP's pick boxmark is deliberately not used here: the brand guide doesn't allow it in a square format or below 0.5 inch.
+
 ## Publishing with GitHub Pages
 
 1. In the repository, open **Settings → Pages**.
