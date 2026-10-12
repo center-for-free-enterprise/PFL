@@ -64,6 +64,14 @@ The session readings are published twice from one source: as web pages (`session
   ```
 - **Add a session**: add its Markdown file, an entry in `SESSIONS` in `tools/build_readings.py`, a title in `assets/js/reading.js`, and a card on the landing page (`index.html`, `assets/js/home.js`).
 
+## Visit counts
+
+Page views are counted with [GoatCounter](https://www.goatcounter.com/) (no cookies, no personal data). The dashboard is at https://c4fe.goatcounter.com. Every page loads the snippet just before `</body>`; reading pages get it from the template in `tools/build_readings.py`. A new page needs the same line:
+
+```
+<script data-goatcounter="https://c4fe.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+```
+
 ## Publishing with GitHub Pages
 
 1. In the repository, open **Settings → Pages**.

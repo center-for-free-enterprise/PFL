@@ -132,6 +132,7 @@ PAGE = """<!doctype html>
 
 <script src="assets/js/site.js?v={ver}"></script>
 <script src="assets/js/reading.js?v={ver}"></script>
+<script data-goatcounter="https://c4fe.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
 """
