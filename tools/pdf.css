@@ -6,13 +6,14 @@
 @font-face{font-family:"Inter";font-weight:700;src:url("../assets/fonts/inter-latin-700-normal.woff")}
 @font-face{font-family:"Inter Tight";font-weight:600;src:url("../assets/fonts/inter-tight-latin-600-normal.woff")}
 @font-face{font-family:"Inter Tight";font-weight:700;src:url("../assets/fonts/inter-tight-latin-700-normal.woff")}
+@font-face{font-family:"Inter Tight";font-weight:800;src:url("../assets/fonts/inter-tight-latin-800-normal.woff")}
 
-:root{--navy:#041E42;--orange:#FF8200;--sky:#1CA6DF;--cool:#B1B3B3;--ink:#0B1B33;--muted:#566379;--line:#D8DFE9;--sunk:#EEF2F7;--warm:#FFF3E3;--warm-ink:#4A2A00;--red:#B3261E;--red-bg:#FCE8E6}
+:root{--navy:#041E42;--orange:#FF8200;--sky:#1CA6DF;--cool:#B1B3B3;--ink:#4E4B48;--muted:#6B6864;--line:#D9D9D6;--sunk:#F1F1EE;--warm:#FFF3E3;--warm-ink:#4A2A00;--red:#B3261E;--red-bg:#FCE8E6}
 
 @page{size:Letter;margin:22mm 20mm 20mm 20mm;
-  @top-left{font:500 8pt "Inter";color:#566379}
-  @top-right{content:string(section);font:500 8pt "Inter";color:#566379}
-  @bottom-left{content:"For learning only; not financial advice.";font:400 7.5pt "Inter";color:#8A93A3}
+  @top-left{font:700 7pt "Inter";letter-spacing:.18em;text-transform:uppercase;color:#041E42}
+  @top-right{content:string(section);font:700 7pt "Inter";letter-spacing:.18em;text-transform:uppercase;color:#6B6864}
+  @bottom-left{content:"For learning only; not financial advice.";font:400 7.5pt "Inter";color:#6B6864}
   @bottom-right{content:counter(page);font:600 8.5pt "Inter";color:#041E42}}
 @page cover{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
 @page back{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
@@ -20,15 +21,15 @@
 
 html{font-family:"Inter",Arial,sans-serif;font-size:10.5pt;line-height:1.55;color:var(--ink)}
 body{margin:0}
-h1,h2,h3,h4{font-family:"Inter Tight","Inter",sans-serif;color:var(--navy)}
+h1,h2,h3,h4{font-family:"Inter Tight","Inter",sans-serif;font-weight:800;letter-spacing:-.015em;color:var(--navy)}
 
 /* cover */
 .cover{page:cover;height:279.4mm;width:215.9mm;background:var(--navy);color:#fff;position:relative}
 .cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9mm;background:var(--orange)}
 .cover-logo{position:absolute;left:22mm;top:24mm;height:30mm}
 .cover-text{position:absolute;left:22mm;right:22mm;top:105mm}
-.cover .kicker{font:600 12pt "Inter";letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin:0 0 6mm}
-.cover h1{font:700 54pt/1 "Inter Tight";color:#fff;margin:0}
+.cover .kicker{font:700 10pt "Inter";letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin:0 0 6mm}
+.cover h1{font:800 56pt/1 "Inter Tight";letter-spacing:-.02em;color:#fff;margin:0}
 .cover-sub{font:500 22pt/1.25 "Inter Tight";color:#fff;margin:5mm 0 0;max-width:150mm}
 .cover-foot{position:absolute;left:22mm;right:70mm;bottom:22mm;font-size:9pt;color:#B9C6DB}
 .cover-foot p{margin:1.5mm 0}
@@ -37,7 +38,7 @@ h1,h2,h3,h4{font-family:"Inter Tight","Inter",sans-serif;color:var(--navy)}
 
 /* contents */
 .contents{page:contents;break-after:page;string-set:section ""}
-.toc-h{font-size:22pt;margin:0 0 6mm;padding-bottom:3mm;border-bottom:3pt solid var(--orange)}
+.toc-h{font-size:24pt;margin:0 0 8mm}
 .contents ol{list-style:none;padding:0;margin:0}
 .contents li{margin:0 0 3.5mm;font-size:11.5pt}
 .contents a{color:var(--ink);text-decoration:none}
@@ -46,13 +47,20 @@ h1,h2,h3,h4{font-family:"Inter Tight","Inter",sans-serif;color:var(--navy)}
 .contents .note p{margin:0 0 2mm}
 
 /* body */
-.prose h2{font-size:20pt;line-height:1.15;margin:0 0 4mm;padding-top:3mm;border-top:4pt solid var(--orange);break-before:page;string-set:section content(text)}
+.prose h2{font-size:20pt;line-height:1.15;margin:0 0 5mm;break-before:page}
+.prose h2 .eyebrow-rule{display:flex;align-items:center;font:700 8pt "Inter";letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:4mm;string-set:section content(text)}
+.prose h2 .eyebrow-rule::after{content:"";flex:1;height:.6pt;background:var(--orange);margin-left:4mm}
+.prose h2 .t{display:inline;background:var(--navy);color:#fff;padding:1.2mm 4mm 1.8mm;font-size:21pt;line-height:1.55;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.prose h2:not(:has(.t)){string-set:section content(text)}
 .prose h3{font-size:13pt;margin:6mm 0 1.5mm;break-after:avoid}
 .prose p{margin:0 0 2.6mm;orphans:3;widows:3}
 .prose ul,.prose ol{margin:0 0 3mm;padding-left:6mm}
+.prose ul{list-style:none}
+.prose ul>li{position:relative}
+.prose ul>li::before{content:"";position:absolute;left:-4.5mm;top:1.7mm;width:1.6mm;height:1.6mm;background:var(--sky);transform:rotate(45deg)}
 .prose li{margin:0 0 1.2mm}
 .prose strong{color:var(--navy)}
-.prose a{color:var(--navy)}
+.prose a{color:var(--navy);text-decoration-color:var(--orange)}
 .en-only{display:none}
 
 .callout{margin:4mm 0;padding:3.5mm 5mm;border-left:4pt solid var(--line);background:var(--sunk);break-inside:avoid;font-size:10pt}

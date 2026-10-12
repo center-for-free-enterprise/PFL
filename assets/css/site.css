@@ -5,6 +5,7 @@
 @font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/inter-latin-600-normal.woff2") format("woff2"),url("../fonts/inter-latin-600-normal.woff") format("woff")}
 @font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/inter-latin-700-normal.woff2") format("woff2"),url("../fonts/inter-latin-700-normal.woff") format("woff")}
 @font-face{font-family:"Inter Tight";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/inter-tight-latin-600-normal.woff2") format("woff2"),url("../fonts/inter-tight-latin-600-normal.woff") format("woff")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:800;font-display:swap;src:url("../fonts/inter-tight-latin-800-normal.woff2") format("woff2"),url("../fonts/inter-tight-latin-800-normal.woff") format("woff")}
 @font-face{font-family:"Inter Tight";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/inter-tight-latin-700-normal.woff2") format("woff2"),url("../fonts/inter-tight-latin-700-normal.woff") format("woff")}
 
 /* C4FE Personal Financial Literacy — shared styles
@@ -12,9 +13,10 @@
 :root{
   --band:#041E42; --on-band:#FFFFFF; --on-band-muted:#B9C6DB;
   --orange:#FF8200;
-  --bg:#F4F6F9; --surface:#FFFFFF; --sunk:#EDF1F6;
-  --ink:#0B1B33; --muted:#566379; --line:#D8DFE9;
-  --heading:#041E42; --link:#0B4A9E;
+  /* Neutrals from the UTEP 2026 palette: Mineral Gris text, Desert Dust lines. */
+  --bg:#F6F6F4; --surface:#FFFFFF; --sunk:#F1F1EE;
+  --ink:#4E4B48; --muted:#6B6864; --line:#D9D9D6;
+  --heading:#041E42; --link:#041E42;
   --principal:#041E42; --interest:#FF8200;
   --warn-bg:#FFF3E3; --warn-line:#FF8200; --warn-ink:#4A2A00;
   --good:#1D6B3C; --good-bg:#E6F4EB;
@@ -395,3 +397,24 @@ footer li{margin-bottom:4px}
 .dcol em{font-style:normal;font-size:.78rem;font-weight:700;color:var(--warn-ink)}
 .dcol li span{font-size:.85rem;color:var(--muted)}
 @media print{.read-layout{display:block}.toc{display:none}.tryit .go{display:none}.tryit .url{display:block;grid-column:2;font-size:.8rem;color:var(--muted)}}
+
+
+/* ---------- UTEP 2026 brand typography ----------
+   Headlines: Inter Tight ExtraBold, tight tracking, Midnight Pick.
+   Labels: uppercase Inter Bold, wide tracking, followed by a Miner Blaze rule.
+   Body: Inter Regular in Mineral Gris. Lists: Borderland Azul diamonds.
+   Links: Midnight Pick with a Miner Blaze underline (orange text alone fails contrast on white). */
+h1,h2,h3,h4,.prose h2,.prose h3,.dcol h4{font-family:var(--display);font-weight:800;letter-spacing:-.015em}
+h1{letter-spacing:-.02em}
+a{color:var(--link);text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:3px}
+a.card,a.tryit,a.btn,.toc a,.lang a,.crumb{text-decoration:none}
+.rule-label,.section-h,.prose .eyebrow-rule{display:flex;align-items:center;gap:14px;font-family:var(--font);font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--heading)}
+.rule-label::after,.section-h::after,.prose .eyebrow-rule::after{content:"";flex:1;height:1px;background:var(--orange)}
+.section-h{margin:36px 0 16px}
+.prose h2{border-top:0;padding-top:0;margin-top:2.4em}
+.prose h2 .eyebrow-rule{margin-bottom:.55em}
+.prose h2 .t{display:block}
+.prose ul{list-style:none;padding-left:1.5em}
+.prose ul>li{position:relative}
+.prose ul>li::before{content:"";position:absolute;left:-1.2em;top:.62em;width:.45em;height:.45em;background:var(--sky);transform:rotate(45deg)}
+.band .eyebrow{letter-spacing:.2em;font-weight:700}

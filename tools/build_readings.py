@@ -51,11 +51,21 @@ def enrich(soup, pdf=False):
         div.replace_with(BeautifulSoup(card, "lxml").a)
     for div in soup.select("div.callout"):
         div["role"] = "note"
+    # "Section 3: Saving with Purpose" -> a ruled label ("Section 3") above the title, as in the UTEP brand guide.
+    for h in soup.find_all("h2"):
+        full = h.get_text(" ", strip=True)
+        h["data-full"] = full
+        m = re.match(r"^((?:Section \d+)|Introduction|Summary)\s*:\s*(.+)$", full)
+        if m:
+            h.clear()
+            lab = soup.new_tag("span", attrs={"class": "eyebrow-rule"}); lab.string = m.group(1)
+            t = soup.new_tag("span", attrs={"class": "t"}); t.string = m.group(2)
+            h.append(lab); h.append(t)
     return soup
 
 
 def toc(soup):
-    items = [(h["id"], h.get_text(" ", strip=True)) for h in soup.find_all("h2") if h.get("id")]
+    items = [(h["id"], h.get("data-full") or h.get_text(" ", strip=True)) for h in soup.find_all("h2") if h.get("id")]
     return items
 
 
