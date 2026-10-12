@@ -34,7 +34,7 @@ en:{
  fb_p:"A few lines help us improve the tools and show schools what the workshop does. For example:",
  fb_list:["Which tools you used, and with which grade or class","What worked and what confused students","A question or a topic you wish the site covered"],
  fb_privacy:"Please don't send student names or other student information. Your message goes only to the Center for Free Enterprise.",
- fb_btn:"Email the Center", fb_copy:"Copy address", fb_copied:"Copied",
+ fb_label:"Send feedback to", fb_btn:"Email the Center", fb_copy:"Copy", fb_copied:"Copied",
  fb_subject:"PFL tools: classroom feedback",
  open:"Open",
  s1:"Session 1", s2:"Session 2", s12:"Sessions 1 and 2"
@@ -71,7 +71,7 @@ es:{
  fb_p:"Unas líneas nos ayudan a mejorar las herramientas y a mostrar a las escuelas lo que logra el taller. Por ejemplo:",
  fb_list:["Qué herramientas usaste y con qué grado o grupo","Qué funcionó y qué confundió a los estudiantes","Una pregunta o un tema que te gustaría que el sitio incluyera"],
  fb_privacy:"Por favor, no envíes nombres ni otros datos de los estudiantes. Tu mensaje llega solo al Center for Free Enterprise.",
- fb_btn:"Escribir al Centro", fb_copy:"Copiar dirección", fb_copied:"Copiada",
+ fb_label:"Envía tus comentarios a", fb_btn:"Escribir al Centro", fb_copy:"Copiar", fb_copied:"Copiada",
  fb_subject:"Herramientas PFL: comentarios de clase",
  open:"Abrir",
  s1:"Sesión 1", s2:"Sesión 2", s12:"Sesiones 1 y 2"
