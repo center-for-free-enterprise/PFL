@@ -22,7 +22,7 @@ assets/css/site.css     Shared styles and UTEP colors (blue #041E42, orange #FF8
 assets/js/site.js       Shared header, disclaimer, footer, language toggle, common text, form and chart helpers
 assets/js/home.js       Landing page text
 assets/js/<tool>.js     Each tool's text (English and Spanish), example defaults, and math
-assets/img/             C4FE logos (color, reverse for dark backgrounds, white) and qr-site.svg
+assets/img/             C4FE logos (color, reverse for dark backgrounds, white), qr-site.svg, social-preview.jpg
 .nojekyll               Tells GitHub Pages to serve files as-is
 ```
 
@@ -62,6 +62,10 @@ Every tool and the teacher guide have a **Print results** button. The printed pa
 ## QR code
 
 `assets/img/qr-site.svg` points to `https://center-for-free-enterprise.github.io/PFL/`. If the site moves to another address, regenerate it.
+
+## Link previews
+
+When someone shares a page (WhatsApp, text messages, LinkedIn, email), the preview card uses `assets/img/social-preview.jpg` (1280 × 640), set by the `og:` tags in each page's `<head>`. To change it, replace that file and keep the same size. The repository's own preview on GitHub is uploaded separately under **Settings → General → Social preview**.
 
 ## Linking straight to a tab
 
