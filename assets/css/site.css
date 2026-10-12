@@ -367,7 +367,10 @@ footer li{margin-bottom:4px}
 .fig-svg .track{fill:var(--sunk)}
 .fig-svg .c-orange{fill:var(--orange)} .fig-svg .c-navy{fill:#041E42} .fig-svg .c-cool{fill:var(--cool)} .fig-svg .c-sky{fill:var(--sky)}
 .fig-svg .ln{fill:none;stroke-width:3}
-.fig-svg .c-orange-s{stroke:var(--orange)} .fig-svg .c-navy-s{stroke:var(--principal)}
+.fig-svg .c-orange-s{stroke:var(--orange)} .fig-svg .c-navy-s{stroke:var(--principal)} .fig-svg .c-cool-s{stroke:var(--cool)}
+.fig-svg .dash{stroke-dasharray:7 5}
+.fig-img{display:block;width:100%;height:auto;border-radius:6px;background:#fff}
+.prose h4{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--heading);margin:1.5em 0 .25em;scroll-margin-top:16px}
 :root[data-theme="dark"] .fig-svg .c-navy{fill:#3B6CB0}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fig-svg .c-navy{fill:#3B6CB0}}
 .stub-doc{font-size:.9rem;font-variant-numeric:tabular-nums;border:1px solid var(--line);border-radius:8px;overflow:hidden}

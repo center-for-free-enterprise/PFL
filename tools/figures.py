@@ -197,8 +197,196 @@ def fico():
         "What affects your FICO credit score. The two biggest factors, paying on time and keeping balances low, are the ones you control every month."
 
 
+# ---------------------------------------------------------------- Session 2
+def fv_monthly(pmt, rate, months):
+    """Monthly deposits at the end of each month, rate/12 per month (the convention the Investing tool uses)."""
+    i = rate / 12
+    return pmt * ((1 + i) ** months - 1) / i
+
+
+def line_chart(xs, series, xlab, xticks, W=720, H=300, label="", mr=150, fmt=money):
+    """series: list of (values, stroke-class, name, dashed). Values may contain None (no point)."""
+    ml, mt, mb = 70, 16, 40
+    top = max(v for vals, *_ in series for v in vals if v is not None)
+    step = nice_step(top); top = -(-top // step) * step
+    x0, x1 = xs[0], xs[-1]
+    sx = lambda x: ml + (x - x0) / (x1 - x0) * (W - ml - mr)
+    sy = lambda v: mt + (H - mt - mb) * (1 - v / top)
+    g, v = "", 0
+    while v <= top + 1:
+        g += (f'<line class="grid" x1="{ml}" x2="{W - mr}" y1="{sy(v):.1f}" y2="{sy(v):.1f}"/>'
+              f'<text class="ax" x="{ml - 8}" y="{sy(v) + 4:.1f}" text-anchor="end">{fmt(v)}</text>')
+        v += step
+    for t in xticks:
+        g += f'<text class="ax" x="{sx(t):.1f}" y="{H - mb + 20}" text-anchor="middle">{t}</text>'
+    g += f'<text class="ax" x="{(ml + W - mr) / 2:.1f}" y="{H - 4}" text-anchor="middle">{xlab}</text>'
+    ends = []
+    for vals, cls, name, dashed in series:
+        pts = " ".join(f"{sx(x):.1f},{sy(v):.1f}" for x, v in zip(xs, vals) if v is not None)
+        g += f'<polyline class="ln {cls}{" dash" if dashed else ""}" points="{pts}"/>'
+        ends.append([sy(vals[-1]), cls, name, vals[-1]])
+    # end labels, nudged apart so they never overlap
+    ends.sort(key=lambda e: e[0])
+    for k in range(1, len(ends)):
+        if ends[k][0] - ends[k - 1][0] < 38: ends[k][0] = ends[k - 1][0] + 38
+    for y, cls, name, val in ends:
+        dot = cls.replace("-s", "")
+        g += (f'<circle class="{dot}" cx="{sx(x1):.1f}" cy="{sy(val):.1f}" r="5"/>'
+              f'<text class="lab" x="{sx(x1) + 12:.1f}" y="{y - 2:.1f}">{name}</text>'
+              f'<text class="val strong" x="{sx(x1) + 12:.1f}" y="{y + 15:.1f}">{money(val)}</text>')
+    return svg(W, H, g, label)
+
+
+def saving_vs_investing():
+    yrs = list(range(0, 31))
+    inv = [10000 * 1.07 ** t for t in yrs]
+    need = [10000 * 1.03 ** t for t in yrs]
+    sav = [10000 * 1.01 ** t for t in yrs]
+    html = line_chart(yrs, [(inv, "c-orange-s", "Invested at 7%", False),
+                            (need, "c-cool-s", "Keeping up with 3% inflation", True),
+                            (sav, "c-navy-s", "Savings at 1%", False)],
+                      "Years", (0, 5, 10, 15, 20, 25, 30), mr=210, label="Saving vs. investing: $10,000 over 30 years")
+    return html, (f"$10,000 over 30 years. In savings at 1% it grows to {money(sav[-1])}, short of the {money(need[-1])} needed just to keep "
+                  f"up with 3% inflation. Invested at an average 7% a year, it grows to {money(inv[-1])}. Returns are averages; real markets go up and down.")
+
+
+def risk_return():
+    steps = [("Savings accounts", "and CDs", "c-cool"), ("Bonds", "Treasury, corporate", "c-sky"),
+             ("Mutual and", "index funds", "c-navy"), ("Individual", "stocks", "c-orange")]
+    W, H, x0, y0, bw, gap = 720, 280, 60, 230, 150, 10
+    g = (f'<line class="axis" x1="{x0 - 10}" x2="{W - 10}" y1="{y0}" y2="{y0}"/>'
+         f'<line class="axis" x1="{x0 - 10}" x2="{x0 - 10}" y1="{y0}" y2="10"/>'
+         f'<path class="c-navy" d="M{W - 10},{y0} l-10,-6 v12 z"/><path class="c-navy" d="M{x0 - 10},6 l-6,10 h12 z"/>'
+         f'<text class="ax" x="{W - 14}" y="{y0 + 22}" text-anchor="end">Higher risk (bigger ups and downs) →</text>'
+         f'<text class="ax" x="{x0 - 22}" y="{y0}" transform="rotate(-90 {x0 - 22} {y0})">Higher expected return →</text>')
+    for i, (a, b, cls) in enumerate(steps):
+        h = 50 + i * 45
+        x = x0 + i * (bw + gap)
+        txt = "lab" if cls == "c-cool" else "on-fill"
+        g += (f'<rect class="{cls}" x="{x}" y="{y0 - h}" width="{bw}" height="{h}" rx="3"/>'
+              f'<text class="{txt} strong" x="{x + 10}" y="{y0 - h + 22}">{a}</text>'
+              f'<text class="{txt}" x="{x + 10}" y="{y0 - h + 40}">{b}</text>')
+    return svg(W, H, g, "The risk-return spectrum"), \
+        ("The risk-return spectrum. Investments that can earn more over time also swing more along the way. "
+         "The goal is the right amount of risk for your situation, not zero risk.")
+
+
+def eggs():
+    html = ('<img class="fig-img" src="assets/img/readings/eggs-baskets.jpg" width="1100" height="620" '
+            'alt="Left: one large basket holding every egg, with one egg broken on the ground. Right: the same eggs spread across three smaller baskets.">')
+    return html, ("Don't put all your eggs in one basket. With everything in one company, one failure can wipe you out; "
+                  "spread across many, a single failure costs you only a small share.")
+
+
+def _donut(cx, cy, r, w, parts):
+    import math
+    out, a = "", -math.pi / 2
+    for frac, cls in parts:
+        b = a + frac * 2 * math.pi
+        large = 1 if frac > .5 else 0
+        p = lambda ang, rad: (cx + rad * math.cos(ang), cy + rad * math.sin(ang))
+        (ax1, ay1), (bx1, by1) = p(a, r), p(b, r)
+        (bx2, by2), (ax2, ay2) = p(b, r - w), p(a, r - w)
+        out += (f'<path class="{cls}" d="M{ax1:.1f},{ay1:.1f} A{r},{r} 0 {large} 1 {bx1:.1f},{by1:.1f} '
+                f'L{bx2:.1f},{by2:.1f} A{r - w},{r - w} 0 {large} 0 {ax2:.1f},{ay2:.1f} Z"/>')
+        a = b
+    return out
+
+
+def allocation():
+    W, H = 720, 290
+    cols = [(180, "Younger investor", "decades to retirement", .90), (540, "Investor near retirement", "protecting built wealth", .40)]
+    g = ""
+    for cx, t, sub, st in cols:
+        g += (f'<text class="lab strong" x="{cx}" y="20" text-anchor="middle">{t}</text>'
+              f'<text class="ax" x="{cx}" y="38" text-anchor="middle">({sub})</text>'
+              + _donut(cx, 145, 85, 34, [(st, "c-orange"), (1 - st, "c-navy")]) +
+              f'<text class="lab strong" x="{cx}" y="142" text-anchor="middle" font-size="20" style="font-size:20px">{st * 100:.0f}%</text>'
+              f'<text class="ax" x="{cx}" y="160" text-anchor="middle">stocks</text>'
+              f'<text class="val" x="{cx}" y="254" text-anchor="middle">{st * 100:.0f}% stocks · {(1 - st) * 100:.0f}% bonds</text>')
+    g += (f'<rect class="c-orange" x="270" y="270" width="14" height="14" rx="2"/><text class="lab" x="290" y="282">Stocks</text>'
+          f'<rect class="c-navy" x="370" y="270" width="14" height="14" rx="2"/><text class="lab" x="390" y="282">Bonds</text>')
+    return svg(W, H, g, "Asset allocation shifts with age"), \
+        ("Asset allocation shifts with age. With decades ahead, a young investor can ride out market drops and holds mostly stocks; "
+         "near retirement, more bonds protect what has been built. These mixes are illustrations, not recommendations.")
+
+
+def tax_timing():
+    W, H, lw = 720, 200, 140
+    stages = ["Money goes in", "Grows for decades", "You take it out"]
+    rows = [("Traditional", "401(k) or IRA", [False, False, True]), ("Roth", "401(k) or IRA", [True, False, False])]
+    cw = (W - lw) / 3
+    g = ""
+    for j, s in enumerate(stages):
+        g += f'<text class="ax strong" x="{lw + j * cw + cw / 2 - 6:.1f}" y="18" text-anchor="middle">{s.upper()}</text>'
+    for i, (name, sub, taxed) in enumerate(rows):
+        y = 34 + i * 82
+        g += (f'<text class="lab strong" x="0" y="{y + 30}">{name}</text>'
+              f'<text class="val" x="0" y="{y + 48}">{sub}</text>')
+        for j, t in enumerate(taxed):
+            x = lw + j * cw
+            cls, txt = ("c-orange", "Taxed here") if t else ("track", "Not taxed")
+            g += (f'<rect class="{cls}" x="{x:.1f}" y="{y}" width="{cw - 26:.1f}" height="64" rx="4"/>'
+                  f'<text class="{"lab" if not t else "lab"} strong" x="{x + (cw - 26) / 2:.1f}" y="{y + 38}" text-anchor="middle">{txt}</text>')
+            if j < 2:
+                ax = x + cw - 22
+                g += f'<path class="c-cool" d="M{ax:.1f},{y + 24} l12,8 l-12,8 z"/>'
+    return svg(W, H, g, "Traditional vs. Roth: when you pay taxes"), \
+        ("Traditional vs. Roth: when you pay taxes. A Traditional account lowers your taxes now and taxes withdrawals later; "
+         "a Roth taxes the money going in, then the growth and qualified withdrawals are tax-free.")
+
+
+def early_late():
+    ages = list(range(22, 63))
+    def path(start, stop):  # $5,000 at the start of each year from age `start` through `stop - 1`, 7% a year
+        b, out = 0.0, []
+        for a in ages:
+            out.append(b if a >= start or b else None)
+            if a == ages[-1]: break
+            b = (b + (5000 if start <= a < stop else 0)) * 1.07
+        out[0] = out[0] if out[0] is not None else (0 if start == 22 else None)
+        return out
+    A, B = path(22, 32), path(32, 62)
+    B = [None if a < 32 else v for a, v in zip(ages, B)]
+    A[0] = 0; B[ages.index(32)] = 0
+    html = line_chart(ages, [(A, "c-orange-s", "Person A: 22 to 31", False), (B, "c-navy-s", "Person B: 32 to 61", False)],
+                      "Age", (22, 32, 42, 52, 62), mr=170, label="Starting early: Person A vs. Person B")
+    return html, (f"Person A puts in $5,000 a year for 10 years ($50,000) and then stops; Person B starts 10 years later and puts in "
+                  f"$5,000 a year for 30 years ($150,000). Both earn 7% a year. At 62, A has {money(A[-1])} and B has {money(B[-1])}.")
+
+
+def net_worth():
+    assets = [("Savings", 3000), ("Roth IRA", 2000), ("Car", 8000)]
+    owe = [("Card", 1500), ("Car loan", 5000)]
+    total = sum(v for _, v in assets); nw = total - sum(v for _, v in owe)
+    W, H, lw, x1 = 720, 230, 150, 710
+    sc = (x1 - lw) / total
+    g = ""
+    def row(y, title, sub, segs):
+        nonlocal g
+        g += f'<text class="lab strong" x="0" y="{y + 26}">{title}</text><text class="val" x="0" y="{y + 44}">{sub}</text>'
+        x = lw
+        for name, v, cls in segs:
+            w = v * sc
+            dark = cls != "c-cool"
+            t = "on-fill" if dark else "lab"
+            g += (f'<rect class="{cls}" x="{x:.1f}" y="{y}" width="{w - 3:.1f}" height="58" rx="3"/>'
+                  f'<text class="{t} strong" x="{x + 8:.1f}" y="{y + 25}">{name}</text>'
+                  f'<text class="{t}" x="{x + 8:.1f}" y="{y + 44}">{money(v)}</text>')
+            x += w
+    row(10, "Assets", "what you own", [(n, v, "c-navy") for n, v in assets])
+    row(90, "Liabilities", "what you owe", [(n, v, "c-cool") for n, v in owe] + [("Net worth", nw, "c-orange")])
+    g += (f'<line class="axis" x1="{lw}" x2="{x1 - 3}" y1="168" y2="168"/>'
+          f'<text class="lab" x="{lw}" y="192">Assets {money(total)} − liabilities {money(total - nw)} = <tspan class="strong" font-weight="700">net worth {money(nw)}</tspan></text>')
+    return svg(W, H, g, "Net worth: assets minus liabilities"), \
+        ("Net worth is what is left when you subtract what you owe from what you own. Assets include cash, investments, a car, and a home "
+         "(at market value); liabilities include credit card balances, student loans, a car loan, and a mortgage.")
+
+
 FIGURES = {"paystub": paystub, "takehome": takehome, "compound": compound, "goals": goals,
-           "amortization": amortization, "avalanche": avalanche, "fico": fico}
+           "amortization": amortization, "avalanche": avalanche, "fico": fico,
+           "saving_vs_investing": saving_vs_investing, "risk_return": risk_return, "eggs": eggs, "allocation": allocation,
+           "tax_timing": tax_timing, "early_late": early_late, "net_worth": net_worth}
 
 
 def render(name):

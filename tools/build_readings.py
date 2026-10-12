@@ -22,6 +22,9 @@ SESSIONS = [
     dict(id="session-1", src="readings/src/session-1.md", num=1,
          title="Budgeting, Saving, Debt, and Credit",
          desc="The Session 1 reading of the C4FE Personal Financial Literacy Workshop: income and taxes, budgeting, saving, debt, credit cards, credit scores, and insurance."),
+    dict(id="session-2", src="readings/src/session-2.md", num=2,
+         title="Building Wealth Over Time",
+         desc="The Session 2 reading of the C4FE Personal Financial Literacy Workshop: saving vs. investing, risk and return, student loans and mortgages, index funds, diversification, retirement accounts, and net worth."),
 ]
 TOOLS = {
     "budget": ("Budget Simulator", "See your own take-home pay and build a 50/30/20 plan."),
@@ -31,6 +34,8 @@ TOOLS = {
     "score": ("Credit Score Explorer", "See how each habit moves the five credit score factors."),
     "invest": ("Investing and Compound Growth", "See how time, fees, and market swings shape your savings."),
     "match": ("Paycheck and Employer Match", "See how a 401(k) changes your paycheck and what the match adds."),
+    "loans#student": ("Loan Calculator: Student Loans", "See how interest builds while you are in school and what each repayment term costs."),
+    "loans#mortgage": ("Loan Calculator: Mortgages", "See how the price, down payment, rate, and PMI change your monthly payment."),
 }
 
 
@@ -45,9 +50,10 @@ def enrich(soup, pdf=False):
         div.replace_with(BeautifulSoup(figures.render(div["data-fig"]), "lxml").figure)
     for div in soup.select("div.tryit"):
         key = div["data-tool"]; name, desc = TOOLS[key]
-        card = (f'<a class="tryit" href="{SITE if pdf else ""}{key}.html"><span class="k">Try it</span><b>{escape(name)}</b>'
+        page, _, tab = key.partition("#"); href = f"{page}.html" + (f"#{tab}" if tab else "")
+        card = (f'<a class="tryit" href="{SITE if pdf else ""}{href}"><span class="k">Try it</span><b>{escape(name)}</b>'
                 f'<span class="d">{escape(desc)}</span><span class="go">Open the tool →</span>'
-                f'<span class="url">{SITE.replace("https://", "")}{key}.html</span></a>')
+                f'<span class="url">{SITE.replace("https://", "")}{href}</span></a>')
         div.replace_with(BeautifulSoup(card, "lxml").a)
     for div in soup.select("div.callout"):
         div["role"] = "note"
@@ -133,7 +139,7 @@ def build_web(s):
 
 # ---------------------------------------------------------------- PDF
 PDF_COLORS = {"c-orange": "#FF8200", "c-navy": "#041E42", "c-cool": "#B1B3B3", "c-sky": "#1CA6DF", "track": "#EDF1F6"}
-PDF_STROKES = {"c-orange-s": "#FF8200", "c-navy-s": "#041E42", "grid": "#D8DFE9", "axis": "#566379"}
+PDF_STROKES = {"c-orange-s": "#FF8200", "c-navy-s": "#041E42", "c-cool-s": "#B1B3B3", "grid": "#D8DFE9", "axis": "#566379"}
 PDF_TEXT = {"ax": "#566379", "val": "#566379", "lab": "#0B1B33", "on-fill": "#FFFFFF"}
 
 
@@ -147,10 +153,11 @@ def inline_svg_colors(soup):
                 el["stroke"] = PDF_STROKES[c]; el["fill"] = "none" if el.name != "line" else el.get("fill", "none")
             if c in PDF_TEXT: el["fill"] = PDF_TEXT[c]
             if c == "ln": el["fill"] = "none"; el["stroke-width"] = "3"
+            if c == "dash": el["stroke-dasharray"] = "7 5"
         if el.name == "text":
             el["font-family"] = "Inter"
             if not el.get("fill"): el["fill"] = "#0B1B33"
-            el["font-size"] = "12" if "ax" in cls or "val" in cls else "13"
+            if not el.get("font-size"): el["font-size"] = "12" if "ax" in cls or "val" in cls else "13"
             if "strong" in cls: el["font-weight"] = "700"
         if "grid" in cls: el["stroke-width"] = "1"
         if "axis" in cls: el["stroke-width"] = "2"

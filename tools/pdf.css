@@ -53,6 +53,7 @@ h1,h2,h3,h4{font-family:"Inter Tight","Inter",sans-serif;font-weight:800;letter-
 .prose h2 .t{display:inline;background:var(--navy);color:#fff;padding:1.2mm 4mm 1.8mm;font-size:21pt;line-height:1.55;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .prose h2:not(:has(.t)){string-set:section content(text)}
 .prose h3{font-size:13pt;margin:6mm 0 1.5mm;break-after:avoid}
+.prose h4{font-size:11pt;margin:4.5mm 0 1mm;break-after:avoid}
 .prose p{margin:0 0 2.6mm;orphans:3;widows:3}
 .prose ul,.prose ol{margin:0 0 3mm;padding-left:6mm}
 .prose ul{list-style:none}
@@ -86,6 +87,7 @@ h1,h2,h3,h4{font-family:"Inter Tight","Inter",sans-serif;font-weight:800;letter-
 .fig{margin:5mm 0;break-inside:avoid}
 .fig figcaption{font-size:8.5pt;line-height:1.45;color:var(--muted);margin-top:2mm}
 .fig-svg{width:100%;height:auto}
+.fig-img{width:100%;height:auto}
 
 .stub-doc{font-size:8.5pt;border:.75pt solid var(--line)}
 .stub-top{display:flex;justify-content:space-between;background:var(--navy);color:#fff;padding:2mm 3mm}

@@ -3,7 +3,7 @@
 const n = document.body.dataset.reading;
 const TITLES = {
   1: { en: "Session 1: Budgeting, Saving, Debt, and Credit", es: "Sesión 1: Presupuesto, ahorro, deudas y crédito" },
-  2: { en: "Session 2: Basics of Investing", es: "Sesión 2: Fundamentos de inversión" }
+  2: { en: "Session 2: Building Wealth Over Time", es: "Sesión 2: Construir patrimonio con el tiempo" }
 };
 const TEXT = {
   en: { title: TITLES[n].en, lede: "The workshop reading. Read it here, or download the PDF to print or keep.",
