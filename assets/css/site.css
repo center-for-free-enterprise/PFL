@@ -292,3 +292,7 @@ footer li{margin-bottom:4px}
 .fb-mail code{font-size:.95rem;user-select:all}
 @media (max-width:700px){.feedback{grid-template-columns:minmax(0,1fr)}}
 @media print{.fb-mail .btn{display:none}}
+.toolbar{gap:10px;flex-wrap:wrap;align-items:center;position:relative}
+.toast{position:absolute;right:0;top:calc(100% + 6px);background:var(--band);color:var(--on-band);font-size:.85rem;font-weight:600;padding:6px 12px;border-radius:999px;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:2}
+.toast.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.toast{transition:none}}

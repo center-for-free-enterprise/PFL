@@ -148,6 +148,7 @@ function draw(goal0, saved, pmt, r, gm, n){
 
 function setType(t){
   type = t;
+  try{ history.replaceState(null,"",(t==="car"?location.pathname:"#"+t)); }catch(e){}
   document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.type===t)));
   build(); compute();
 }

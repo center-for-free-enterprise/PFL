@@ -63,6 +63,10 @@ Every tool and the teacher guide have a **Print results** button. The printed pa
 
 `assets/img/qr-site.svg` points to `https://center-for-free-enterprise.github.io/PFL/`. If the site moves to another address, regenerate it.
 
+## Sharing
+
+Every page has a **Share** button. On phones it opens the phone's own share menu (WhatsApp, Messages, email, and so on); where that menu isn't available it becomes **Copy link**. It loads no outside scripts and sends no data. On tools with tabs, the shared link keeps the tab the visitor was on.
+
 ## Link previews
 
 When someone shares a page (WhatsApp, text messages, LinkedIn, email), the preview card uses `assets/img/social-preview.jpg` (1280 × 640), set by the `og:` tags in each page's `<head>`. To change it, replace that file and keep the same size. The repository's own preview on GitHub is uploaded separately under **Settings → General → Social preview**.

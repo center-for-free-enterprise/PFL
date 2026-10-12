@@ -29,6 +29,8 @@ window.PFL = (function () {
       credit: "Center for Free Enterprise, Woody L. Hunt College of Business, UTEP · c4fe@utep.edu",
       logo_alt: "UTEP Center for Free Enterprise, Woody L. Hunt College of Business",
       print_btn: "Print results",
+      share_btn: "Share", copy_btn: "Copy link", copied: "Link copied", copy_fail: "Copy the address from your browser's address bar",
+      share_text: "A free financial literacy tool from UTEP's Center for Free Enterprise",
       print_note: (url, date) => "Printed from " + url + " on " + date + ". For learning only; not financial advice.",
       for_teachers: "For teachers"
     },
@@ -58,6 +60,8 @@ window.PFL = (function () {
       credit: "Center for Free Enterprise, Woody L. Hunt College of Business, UTEP · c4fe@utep.edu",
       logo_alt: "UTEP Center for Free Enterprise, Woody L. Hunt College of Business",
       print_btn: "Imprimir resultados",
+      share_btn: "Compartir", copy_btn: "Copiar enlace", copied: "Enlace copiado", copy_fail: "Copia la dirección desde la barra de tu navegador",
+      share_text: "Una herramienta gratuita de educación financiera del Center for Free Enterprise de UTEP",
       print_note: (url, date) => "Impreso desde " + url + " el " + date + ". Solo con fines educativos; no es asesoría financiera.",
       for_teachers: "Para docentes"
     }
@@ -196,12 +200,40 @@ window.PFL = (function () {
       '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v6M12 16.5v.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>' +
       '<p><strong data-i18n="disc_title"></strong><span data-i18n="disc_short"></span></p>';
 
-    if (opt.print) {
-      const bar = document.createElement("div"); bar.className = "toolbar";
-      bar.innerHTML = '<button type="button" class="btn" id="print-btn"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span data-i18n="print_btn"></span></button>';
-      notice.after(bar);
-      bar.querySelector("button").addEventListener("click", function () { window.print(); });
-    }
+    // Toolbar: Share (every page) and Print (tool pages).
+    const bar = document.createElement("div"); bar.className = "toolbar";
+    const canShare = typeof navigator.share === "function";
+    bar.innerHTML =
+      '<button type="button" class="btn" id="share-btn"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">' +
+      (canShare
+        ? '<path d="M12 3v12M7 8l5-5 5 5M5 13v7h14v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        : '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>') +
+      '</svg><span data-i18n="' + (canShare ? "share_btn" : "copy_btn") + '"></span></button>' +
+      (opt.print ? '<button type="button" class="btn" id="print-btn"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span data-i18n="print_btn"></span></button>' : "") +
+      '<span class="toast" id="share-toast" role="status" aria-live="polite"></span>';
+    notice.after(bar);
+    const toast = function (key) {
+      const t = document.getElementById("share-toast"); t.textContent = T(key); t.classList.add("on");
+      clearTimeout(toast.timer); toast.timer = setTimeout(function () { t.classList.remove("on"); }, 1800);
+    };
+    const copy = function (url) {
+      const fallback = function () {
+        const i = document.createElement("input"); i.value = url; i.setAttribute("readonly", ""); i.style.position = "fixed"; i.style.opacity = "0";
+        document.body.appendChild(i); i.select();
+        let ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+        i.remove(); toast(ok ? "copied" : "copy_fail");
+      };
+      try { navigator.clipboard.writeText(url).then(function () { toast("copied"); }, fallback); } catch (e) { fallback(); }
+    };
+    bar.querySelector("#share-btn").addEventListener("click", function () {
+      const url = location.href;
+      if (canShare) {
+        navigator.share({ title: document.title, text: T("share_text"), url: url }).catch(function (e) {
+          if (!e || e.name !== "AbortError") copy(url);
+        });
+      } else copy(url);
+    });
+    if (opt.print) bar.querySelector("#print-btn").addEventListener("click", function () { window.print(); });
 
     const footer = document.getElementById("site-footer");
     const src = (opt.sources || []).map(function (k) {
