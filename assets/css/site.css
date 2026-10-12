@@ -1,16 +1,29 @@
+/* Fonts: Inter (primary) and Inter Tight (display), per the UTEP 2026 Visual Brand Guide. Self-hosted, so pages make no requests to outside servers. */
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/inter-latin-400-normal.woff2") format("woff2"),url("../fonts/inter-latin-400-normal.woff") format("woff")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/inter-latin-400-italic.woff2") format("woff2"),url("../fonts/inter-latin-400-italic.woff") format("woff")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/inter-latin-500-normal.woff2") format("woff2"),url("../fonts/inter-latin-500-normal.woff") format("woff")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/inter-latin-600-normal.woff2") format("woff2"),url("../fonts/inter-latin-600-normal.woff") format("woff")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/inter-latin-700-normal.woff2") format("woff2"),url("../fonts/inter-latin-700-normal.woff") format("woff")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/inter-tight-latin-600-normal.woff2") format("woff2"),url("../fonts/inter-tight-latin-600-normal.woff") format("woff")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:800;font-display:swap;src:url("../fonts/inter-tight-latin-800-normal.woff2") format("woff2"),url("../fonts/inter-tight-latin-800-normal.woff") format("woff")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/inter-tight-latin-700-normal.woff2") format("woff2"),url("../fonts/inter-tight-latin-700-normal.woff") format("woff")}
+
 /* C4FE Personal Financial Literacy — shared styles
    Layout: UTEP-blue masthead band, disclaimer callout, then page content in a 1120px column. */
 :root{
   --band:#041E42; --on-band:#FFFFFF; --on-band-muted:#B9C6DB;
   --orange:#FF8200;
-  --bg:#F4F6F9; --surface:#FFFFFF; --sunk:#EDF1F6;
-  --ink:#0B1B33; --muted:#566379; --line:#D8DFE9;
-  --heading:#041E42; --link:#0B4A9E;
+  /* Neutrals from the UTEP 2026 palette: Mineral Gris text, Desert Dust lines. */
+  --bg:#F6F6F4; --surface:#FFFFFF; --sunk:#F1F1EE;
+  --ink:#4E4B48; --muted:#6B6864; --line:#D9D9D6;
+  --heading:#041E42; --link:#041E42;
   --principal:#041E42; --interest:#FF8200;
   --warn-bg:#FFF3E3; --warn-line:#FF8200; --warn-ink:#4A2A00;
   --good:#1D6B3C; --good-bg:#E6F4EB;
   --focus:#FF8200;
-  --font:"Arimo",Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --font:"Inter",Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --display:"Inter Tight","Inter",Arial,sans-serif;
+  --sky:#1CA6DF; --cool:#B1B3B3;
   --r:10px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
@@ -20,7 +33,7 @@
   --heading:#FFFFFF; --link:#8FB8F2;
   --principal:#7FA8E6; --interest:#FF9A33;
   --warn-bg:#2A1D0B; --warn-line:#FF8200; --warn-ink:#FFDDB5;
-  --good:#7FD8A1; --good-bg:#12321F;
+  --good:#7FD8A1; --good-bg:#12321F; --sky:#4CBCEB; --cool:#8D9091;
   color-scheme:dark;
 }}
 :root[data-theme="dark"]{
@@ -30,7 +43,7 @@
   --heading:#FFFFFF; --link:#8FB8F2;
   --principal:#7FA8E6; --interest:#FF9A33;
   --warn-bg:#2A1D0B; --warn-line:#FF8200; --warn-ink:#FFDDB5;
-  --good:#7FD8A1; --good-bg:#12321F;
+  --good:#7FD8A1; --good-bg:#12321F; --sky:#4CBCEB; --cool:#8D9091;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -52,7 +65,7 @@ a{color:var(--link)}
 .brand .eyebrow{display:none}
 .crumb{display:inline-block;font-size:.88rem;color:var(--on-band-muted);margin:0 0 6px;text-decoration:none}
 .crumb:hover{color:var(--on-band);text-decoration:underline}
-h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.1;margin:0;text-wrap:balance}
+h1{font-family:var(--display);letter-spacing:-.01em;font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.1;margin:0;text-wrap:balance}
 .lede{margin:10px 0 0;max-width:60ch;color:var(--on-band-muted)}
 .lang{display:flex;border:1px solid var(--on-band-muted);border-radius:999px;overflow:hidden}
 .lang button{font:600 .9rem var(--font);background:transparent;color:var(--on-band);border:0;padding:8px 16px;cursor:pointer}
@@ -64,7 +77,7 @@ h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.1;margin:0;text-wrap:balan
 .notice svg{flex:none;margin-top:2px}
 .notice p{margin:0;max-width:95ch}
 
-h2{font-size:1.15rem;margin:0;color:var(--heading)}
+h2{font-family:var(--display);font-size:1.15rem;margin:0;color:var(--heading)}
 h3{font-size:1rem;margin:0;color:var(--heading)}
 .sub{color:var(--muted);font-size:.88rem;margin:4px 0 0}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
@@ -296,3 +309,115 @@ footer li{margin-bottom:4px}
 .toast{position:absolute;right:0;top:calc(100% + 6px);background:var(--band);color:var(--on-band);font-size:.85rem;font-weight:600;padding:6px 12px;border-radius:999px;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:2}
 .toast.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.toast{transition:none}}
+
+/* ---------- reading pages (session readings) ---------- */
+.read-layout{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:40px;align-items:start;margin-top:24px}
+@media (max-width:900px){.read-layout{grid-template-columns:minmax(0,1fr);gap:16px}}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);font-size:.9rem}
+@media (max-width:900px){.toc{position:static}}
+.toc summary{font-weight:700;color:var(--heading);cursor:pointer;margin-bottom:8px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.toc a{display:block;padding:6px 10px;border-left:3px solid transparent;color:var(--muted);text-decoration:none;border-radius:0 6px 6px 0}
+.toc a:hover{color:var(--ink);background:var(--sunk)}
+.toc a.on{color:var(--heading);border-left-color:var(--orange);background:var(--sunk);font-weight:600}
+.toc .dl{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.toc .dl .btn{justify-content:center}
+.btn.primary{background:var(--orange);color:#041E42;border-color:var(--orange)}
+.prose{max-width:44rem;font-size:1.0625rem;line-height:1.7;min-width:0}
+.prose h2{font-family:var(--display);font-size:clamp(1.45rem,3vw,1.8rem);line-height:1.2;color:var(--heading);margin:2.6em 0 .5em;padding-top:.6em;border-top:4px solid var(--orange);text-wrap:balance;scroll-margin-top:16px}
+.prose h2:first-of-type{margin-top:.4em}
+.prose h3{font-family:var(--display);font-size:1.2rem;color:var(--heading);margin:1.8em 0 .3em;scroll-margin-top:16px}
+.prose p{margin:.9em 0}
+.prose ul,.prose ol{padding-left:1.4em}
+.prose li{margin:.35em 0}
+.prose strong{color:var(--heading)}
+.en-only{background:var(--sunk);border-radius:8px;padding:10px 14px;font-size:.92rem;color:var(--muted)}
+.callout{margin:1.5em 0;padding:16px 20px;border-radius:var(--r);border-left:6px solid var(--line);background:var(--sunk);font-size:1rem;line-height:1.6;break-inside:avoid}
+.callout p{margin:.4em 0}
+.callout>p:first-child>strong:first-child{display:block;font-family:var(--display);font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.callout.example{border-left-color:var(--principal)}
+.callout.takeaway{border-left-color:var(--band);background:var(--band);color:var(--on-band)}
+.callout.takeaway strong{color:var(--orange)}
+.callout.tip{border-left-color:var(--orange);background:var(--warn-bg)}
+.callout.tip strong{color:var(--warn-ink)}
+.callout.fact,.callout.think,.callout.further{border-left-color:var(--sky)}
+.callout.note,.callout.final{border-left-color:var(--cool)}
+.callout.warning{border-left-color:var(--bad);background:var(--bad-bg)}
+.callout.warning strong{color:var(--bad)}
+.tryit{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 14px;align-items:center;margin:1.4em 0;padding:14px 18px;border:2px solid var(--orange);border-radius:var(--r);text-decoration:none;color:var(--ink);background:var(--surface)}
+.tryit:hover{background:var(--warn-bg)}
+.tryit .k{grid-row:1/3;font-family:var(--display);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;background:var(--orange);color:#041E42;border-radius:999px;padding:4px 10px}
+.tryit b{color:var(--heading);font-size:1.02rem}
+.tryit span.d{grid-column:2;color:var(--muted);font-size:.92rem;line-height:1.4}
+.tryit .go{grid-row:1/3;grid-column:3;font-weight:700;color:var(--link)}
+@media (max-width:520px){.tryit{grid-template-columns:minmax(0,1fr)}.tryit .k{grid-row:auto;justify-self:start}.tryit span.d,.tryit .go{grid-column:1;grid-row:auto}}
+.tryit .url{display:none}
+/* figures */
+.fig{margin:1.8em 0;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);break-inside:avoid}
+.fig figcaption{margin-top:10px;font-size:.88rem;line-height:1.5;color:var(--muted)}
+.fig-svg{display:block;width:100%;height:auto}
+.fig-svg text{font-family:var(--font);font-size:13px;fill:var(--ink)}
+.fig-svg .ax{fill:var(--muted);font-size:12px}
+.fig-svg .lab{fill:var(--ink);font-size:13px}
+.fig-svg .val{fill:var(--muted);font-size:12px}
+.fig-svg .strong{font-weight:700}
+.fig-svg .on-fill{fill:#FFFFFF;font-size:13px}
+.fig-svg .grid{stroke:var(--line)}
+.fig-svg .axis{stroke:var(--muted);stroke-width:2}
+.fig-svg .track{fill:var(--sunk)}
+.fig-svg .c-orange{fill:var(--orange)} .fig-svg .c-navy{fill:#041E42} .fig-svg .c-cool{fill:var(--cool)} .fig-svg .c-sky{fill:var(--sky)}
+.fig-svg .ln{fill:none;stroke-width:3}
+.fig-svg .c-orange-s{stroke:var(--orange)} .fig-svg .c-navy-s{stroke:var(--principal)} .fig-svg .c-cool-s{stroke:var(--cool)}
+.fig-svg .dash{stroke-dasharray:7 5}
+.fig-img{display:block;width:100%;height:auto;border-radius:6px;background:#fff}
+.prose h4{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--heading);margin:1.5em 0 .25em;scroll-margin-top:16px}
+:root[data-theme="dark"] .fig-svg .c-navy{fill:#3B6CB0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fig-svg .c-navy{fill:#3B6CB0}}
+.stub-doc{font-size:.9rem;font-variant-numeric:tabular-nums;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.stub-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--band);color:var(--on-band);padding:10px 14px}
+.stub-top span{color:var(--on-band-muted)}
+.stub-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 16px;margin:0;padding:12px 14px;border-bottom:1px solid var(--line)}
+@media (max-width:620px){.stub-meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stub-meta dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.stub-meta dd{margin:0;font-weight:600}
+.stub-tables{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:0 24px;padding:6px 14px;overflow-x:auto}
+@media (max-width:720px){.stub-tables{grid-template-columns:minmax(0,1fr)}}
+.stub-tables table{font-size:.86rem;align-self:start}
+.stub-tables th,.stub-tables td{padding:6px 4px}
+.stub-tables tfoot td{font-weight:700;border-top:2px solid var(--ink);border-bottom:0}
+.stub-net{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;justify-content:flex-end;padding:10px 14px;background:var(--warn-bg);border-top:1px solid var(--line)}
+.stub-net b{font-size:1.25rem;color:var(--heading)}
+.stub-net .ytd{width:100%;text-align:right;font-size:.8rem;color:var(--muted)}
+.debt-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:620px){.debt-compare{grid-template-columns:minmax(0,1fr)}}
+.dcol h4{font-family:var(--display);margin:0;font-size:1.05rem;color:var(--heading);text-transform:uppercase;letter-spacing:.04em}
+.dcol>p{margin:2px 0 10px;color:var(--muted);font-size:.9rem}
+.dcol ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.dcol li{display:flex;gap:12px;align-items:flex-start;background:var(--sunk);border-radius:8px;padding:10px 12px;line-height:1.4}
+.dcol li:first-child{background:var(--warn-bg);outline:2px solid var(--orange)}
+.dcol .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--band);color:var(--on-band);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+.dcol li div{display:flex;flex-direction:column}
+.dcol em{font-style:normal;font-size:.78rem;font-weight:700;color:var(--warn-ink)}
+.dcol li span{font-size:.85rem;color:var(--muted)}
+@media print{.read-layout{display:block}.toc{display:none}.tryit .go{display:none}.tryit .url{display:block;grid-column:2;font-size:.8rem;color:var(--muted)}}
+
+
+/* ---------- UTEP 2026 brand typography ----------
+   Headlines: Inter Tight ExtraBold, tight tracking, Midnight Pick.
+   Labels: uppercase Inter Bold, wide tracking, followed by a Miner Blaze rule.
+   Body: Inter Regular in Mineral Gris. Lists: Borderland Azul diamonds.
+   Links: Midnight Pick with a Miner Blaze underline (orange text alone fails contrast on white). */
+h1,h2,h3,h4,.prose h2,.prose h3,.dcol h4{font-family:var(--display);font-weight:800;letter-spacing:-.015em}
+h1{letter-spacing:-.02em}
+a{color:var(--link);text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:3px}
+a.card,a.tryit,a.btn,.toc a,.lang a,.crumb{text-decoration:none}
+.rule-label,.section-h,.prose .eyebrow-rule{display:flex;align-items:center;gap:14px;font-family:var(--font);font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--heading)}
+.rule-label::after,.section-h::after,.prose .eyebrow-rule::after{content:"";flex:1;height:1px;background:var(--orange)}
+.section-h{margin:36px 0 16px}
+.prose h2{border-top:0;padding-top:0;margin-top:2.4em}
+.prose h2 .eyebrow-rule{margin-bottom:.55em}
+.prose h2 .t{display:block}
+.prose ul{list-style:none;padding-left:1.5em}
+.prose ul>li{position:relative}
+.prose ul>li::before{content:"";position:absolute;left:-1.2em;top:.62em;width:.45em;height:.45em;background:var(--sky);transform:rotate(45deg)}
+.band .eyebrow{letter-spacing:.2em;font-weight:700}

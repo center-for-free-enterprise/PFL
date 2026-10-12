@@ -47,6 +47,23 @@ Several tools rest on assumptions worth reviewing once a year:
 - **Credit cards (`assets/js/credit.js`, `MIN_RULE`)**: the minimum-payment formula (1% of the balance plus interest, or $25).
 - **Credit score (`assets/js/score.js`, `RATE` and `BANDS`)**: an illustration of how FICO's published factor weights combine. It deliberately shows a band, not a score, because FICO's formula is private.
 
+## Workshop readings
+
+The session readings are published twice from one source: as web pages (`session-1.html`, `session-2.html`) and as print PDFs (`assets/pdf/session-N.pdf`).
+
+- **Edit the text** in `readings/src/session-N.md` (Markdown). Callout boxes, figures, and "Try it" links use fenced blocks:
+  `::: {.callout .example}` … `:::` (types: example, tip, takeaway, fact, think, note, warning, further, final),
+  `::: {.figure fig="name"}` / `:::`, and `::: {.tryit tool="budget"}` / `:::` (a tool name, optionally with a tab, such as `loans#student`).
+- **Figures** are drawn in code in `tools/figures.py`, so their numbers are computed rather than typed. Tax figures there use 2026 federal rules; update `TAX` each year along with `assets/js/site.js`.
+- **PDF layout** is in `tools/pdf.css`; web styles are in `assets/css/site.css`. Both use the UTEP 2026 brand (Inter / Inter Tight, Midnight Pick and Miner Blaze), with fonts self-hosted in `assets/fonts/`.
+- **Rebuild** after any change, then commit the generated HTML and PDF files:
+
+  ```
+  pip install beautifulsoup4 lxml weasyprint   # plus pandoc
+  python3 tools/build_readings.py
+  ```
+- **Add a session**: add its Markdown file, an entry in `SESSIONS` in `tools/build_readings.py`, a title in `assets/js/reading.js`, and a card on the landing page (`index.html`, `assets/js/home.js`).
+
 ## Publishing with GitHub Pages
 
 1. In the repository, open **Settings → Pages**.

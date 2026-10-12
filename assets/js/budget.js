@@ -26,7 +26,7 @@ en:{
  months:n=>n===1?"1 month":n+" months",
  take_h:"What this shows",
  take:"A salary is not what you take home. Taxes come out first, so build your budget on take-home pay. Needs come first, savings come next, and wants fit in what is left. If the plan doesn't add up, change the plan before the month starts, not after.",
- read:"Read more in your Session 1 materials: Section 1, “Understanding Your Income,” and Section 2, “Building a Budget.”"
+ read:"Read more in the Session 1 reading: Section 1, “Understanding Your Income,” and Section 2, “Building a Budget.”"
 },
 es:{
  title:"Simulador de presupuesto",
@@ -52,7 +52,7 @@ es:{
  months:n=>n===1?"1 mes":n+" meses",
  take_h:"Qué muestra esto",
  take:"El salario no es lo que te llevas a casa. Primero se descuentan los impuestos, así que arma tu presupuesto con el ingreso neto. Primero las necesidades, después el ahorro, y los gustos caben en lo que queda. Si el plan no cuadra, cámbialo antes de que empiece el mes, no después.",
- read:"Lee más en tus materiales de la Sesión 1: Sección 1, “Understanding Your Income,” y Sección 2, “Building a Budget.”"
+ read:"Lee más en la lectura de la Sesión 1 (en inglés): Sección 1, “Understanding Your Income,” y Sección 2, “Building a Budget.”"
 }};
 
 const NEEDS = ["rent","utilities","groceries","transport","phone","other_needs"],

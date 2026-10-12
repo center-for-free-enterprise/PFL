@@ -29,7 +29,7 @@ en:{
  chart_h:"How your savings grow", leg_in:"Money you put in", leg_int:"Interest earned", leg_goal:"Goal (rising with prices)", ax_year:"Years from now",
  take_h:"What this shows",
  take:"A goal with a name, a price, and a date turns into a monthly amount you can put in your budget. Interest helps, and a high-yield account helps more, but over a few years the money you put in does most of the work. Prices also rise while you save, so aim for what the goal will cost when you get there, not what it costs today.",
- read:"Read more in your Session 1 materials: Section 3, “Saving with Purpose.”"
+ read:"Read more in the Session 1 reading: Section 3, “Saving with Purpose.”"
 },
 es:{
  title:"Ahorrar para una meta",
@@ -58,7 +58,7 @@ es:{
  chart_h:"Cómo crece tu ahorro", leg_in:"Dinero que aportas", leg_int:"Intereses ganados", leg_goal:"Meta (sube con los precios)", ax_year:"Años a partir de hoy",
  take_h:"Qué muestra esto",
  take:"Una meta con nombre, precio y fecha se convierte en un monto mensual que puedes incluir en tu presupuesto. Los intereses ayudan, y una cuenta de alto rendimiento ayuda más, pero en pocos años el dinero que aportas hace casi todo el trabajo. Además, los precios suben mientras ahorras, así que apunta a lo que costará la meta cuando llegues, no a lo que cuesta hoy.",
- read:"Lee más en tus materiales de la Sesión 1: Sección 3, “Saving with Purpose.”"
+ read:"Lee más en la lectura de la Sesión 1 (en inglés): Sección 3, “Saving with Purpose.”"
 }};
 
 const STATE = {
