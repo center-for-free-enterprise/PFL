@@ -56,7 +56,7 @@ The session readings are published twice from one source: as web pages (`session
   `::: {.figure fig="name"}` / `:::`, and `::: {.tryit tool="budget"}` / `:::` (a tool name, optionally with a tab, such as `loans#student`).
 - **Figures** are drawn in code in `tools/figures.py`, so their numbers are computed rather than typed. Tax figures there use 2026 federal rules; update `TAX` each year along with `assets/js/site.js`.
 - **PDF layout** is in `tools/pdf.css`; web styles are in `assets/css/site.css`. Both use the UTEP 2026 brand (Inter / Inter Tight, Midnight Pick and Miner Blaze), with fonts self-hosted in `assets/fonts/`.
-- **Rebuild** after any change, then commit the generated HTML and PDF files:
+- **Rebuild** after any change (this also restamps the `?v=` version on every page's CSS/JS links so browsers fetch fresh copies), then commit the generated HTML and PDF files:
 
   ```
   pip install beautifulsoup4 lxml weasyprint   # plus pandoc

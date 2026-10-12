@@ -384,6 +384,7 @@ footer li{margin-bottom:4px}
 @media (max-width:720px){.stub-tables{grid-template-columns:minmax(0,1fr)}}
 .stub-tables table{font-size:.86rem;align-self:start}
 .stub-tables th,.stub-tables td{padding:6px 4px}
+@media (max-width:480px){.stub-tables{padding:6px 8px}.stub-tables table{font-size:.78rem}.stub-tables th,.stub-tables td{padding:6px 2px}.stub-tables th{font-size:.62rem;letter-spacing:0}}
 .stub-tables tfoot td{font-weight:700;border-top:2px solid var(--ink);border-bottom:0}
 .stub-net{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;justify-content:flex-end;padding:10px 14px;background:var(--warn-bg);border-top:1px solid var(--line)}
 .stub-net b{font-size:1.25rem;color:var(--heading)}

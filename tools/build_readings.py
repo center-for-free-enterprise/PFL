@@ -18,6 +18,16 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 import figures  # noqa: E402
 
 SITE = "https://center-for-free-enterprise.github.io/PFL/"
+# Stamped onto every CSS/JS link so browsers fetch fresh copies after each rebuild instead of a cached old stylesheet.
+VERSION = __import__("time").strftime("%Y%m%d%H%M")
+
+
+def stamp_pages():
+    import glob
+    pat = re.compile(r'((?:href|src)="assets/(?:css|js)/[a-z0-9-]+\.(?:css|js))(?:\?v=\d+)?"')
+    for p in glob.glob(os.path.join(ROOT, "*.html")):
+        s = open(p).read(); n = pat.sub(lambda m: f'{m.group(1)}?v={VERSION}"', s)
+        if n != s: open(p, "w").write(n)
 SESSIONS = [
     dict(id="session-1", src="readings/src/session-1.md", num=1,
          title="Budgeting, Saving, Debt, and Credit",
@@ -93,7 +103,7 @@ PAGE = """<!doctype html>
 <meta property="og:image:height" content="640">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v={ver}">
 </head>
 <body data-reading="{num}">
 <header id="site-header"></header>
@@ -120,8 +130,8 @@ PAGE = """<!doctype html>
 
 <footer id="site-footer"></footer>
 
-<script src="assets/js/site.js"></script>
-<script src="assets/js/reading.js"></script>
+<script src="assets/js/site.js?v={ver}"></script>
+<script src="assets/js/reading.js?v={ver}"></script>
 </body>
 </html>
 """
@@ -132,7 +142,7 @@ def build_web(s):
     items = toc(soup)
     toc_html = "\n".join(f'          <li><a href="#{i}">{escape(t)}</a></li>' for i, t in items)
     body = soup.article.decode_contents()
-    out = PAGE.format(toc=toc_html, body=body, site=SITE, **{k: escape(str(v)) for k, v in s.items()})
+    out = PAGE.format(toc=toc_html, body=body, site=SITE, ver=VERSION, **{k: escape(str(v)) for k, v in s.items()})
     with open(os.path.join(ROOT, f'{s["id"]}.html'), "w") as f:
         f.write(out)
 
@@ -214,3 +224,5 @@ if __name__ == "__main__":
         build_web(s)
         print("web:", s["id"] + ".html")
         print("pdf:", build_pdf(s))
+    stamp_pages()
+    print("stamped CSS/JS links with v=" + VERSION)
