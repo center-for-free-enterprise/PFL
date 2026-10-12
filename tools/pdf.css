@@ -1,0 +1,115 @@
+/* Print layout for the session-reading PDFs (rendered by WeasyPrint). UTEP 2026 brand: Inter, Midnight Pick, Miner Blaze. */
+@font-face{font-family:"Inter";font-weight:400;src:url("../assets/fonts/inter-latin-400-normal.woff")}
+@font-face{font-family:"Inter";font-weight:400;font-style:italic;src:url("../assets/fonts/inter-latin-400-italic.woff")}
+@font-face{font-family:"Inter";font-weight:500;src:url("../assets/fonts/inter-latin-500-normal.woff")}
+@font-face{font-family:"Inter";font-weight:600;src:url("../assets/fonts/inter-latin-600-normal.woff")}
+@font-face{font-family:"Inter";font-weight:700;src:url("../assets/fonts/inter-latin-700-normal.woff")}
+@font-face{font-family:"Inter Tight";font-weight:600;src:url("../assets/fonts/inter-tight-latin-600-normal.woff")}
+@font-face{font-family:"Inter Tight";font-weight:700;src:url("../assets/fonts/inter-tight-latin-700-normal.woff")}
+
+:root{--navy:#041E42;--orange:#FF8200;--sky:#1CA6DF;--cool:#B1B3B3;--ink:#0B1B33;--muted:#566379;--line:#D8DFE9;--sunk:#EEF2F7;--warm:#FFF3E3;--warm-ink:#4A2A00;--red:#B3261E;--red-bg:#FCE8E6}
+
+@page{size:Letter;margin:22mm 20mm 20mm 20mm;
+  @top-left{font:500 8pt "Inter";color:#566379}
+  @top-right{content:string(section);font:500 8pt "Inter";color:#566379}
+  @bottom-left{content:"For learning only; not financial advice.";font:400 7.5pt "Inter";color:#8A93A3}
+  @bottom-right{content:counter(page);font:600 8.5pt "Inter";color:#041E42}}
+@page cover{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
+@page back{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
+@page contents{@top-right{content:none}}
+
+html{font-family:"Inter",Arial,sans-serif;font-size:10.5pt;line-height:1.55;color:var(--ink)}
+body{margin:0}
+h1,h2,h3,h4{font-family:"Inter Tight","Inter",sans-serif;color:var(--navy)}
+
+/* cover */
+.cover{page:cover;height:279.4mm;width:215.9mm;background:var(--navy);color:#fff;position:relative}
+.cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9mm;background:var(--orange)}
+.cover-logo{position:absolute;left:22mm;top:24mm;height:30mm}
+.cover-text{position:absolute;left:22mm;right:22mm;top:105mm}
+.cover .kicker{font:600 12pt "Inter";letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin:0 0 6mm}
+.cover h1{font:700 54pt/1 "Inter Tight";color:#fff;margin:0}
+.cover-sub{font:500 22pt/1.25 "Inter Tight";color:#fff;margin:5mm 0 0;max-width:150mm}
+.cover-foot{position:absolute;left:22mm;right:70mm;bottom:22mm;font-size:9pt;color:#B9C6DB}
+.cover-foot p{margin:1.5mm 0}
+.cover-foot b{color:#fff}
+.cover-qr{position:absolute;right:22mm;bottom:20mm;width:34mm;height:34mm;background:#fff;padding:2mm}
+
+/* contents */
+.contents{page:contents;break-after:page;string-set:section ""}
+.toc-h{font-size:22pt;margin:0 0 6mm;padding-bottom:3mm;border-bottom:3pt solid var(--orange)}
+.contents ol{list-style:none;padding:0;margin:0}
+.contents li{margin:0 0 3.5mm;font-size:11.5pt}
+.contents a{color:var(--ink);text-decoration:none}
+.contents a::after{content:leader(".") target-counter(attr(href), page);color:var(--muted)}
+.contents .note{margin-top:14mm;padding:5mm 6mm;background:var(--sunk);border-left:4pt solid var(--sky);font-size:9.5pt}
+.contents .note p{margin:0 0 2mm}
+
+/* body */
+.prose h2{font-size:20pt;line-height:1.15;margin:0 0 4mm;padding-top:3mm;border-top:4pt solid var(--orange);break-before:page;string-set:section content(text)}
+.prose h3{font-size:13pt;margin:6mm 0 1.5mm;break-after:avoid}
+.prose p{margin:0 0 2.6mm;orphans:3;widows:3}
+.prose ul,.prose ol{margin:0 0 3mm;padding-left:6mm}
+.prose li{margin:0 0 1.2mm}
+.prose strong{color:var(--navy)}
+.prose a{color:var(--navy)}
+.en-only{display:none}
+
+.callout{margin:4mm 0;padding:3.5mm 5mm;border-left:4pt solid var(--line);background:var(--sunk);break-inside:avoid;font-size:10pt}
+.callout p{margin:0 0 1.5mm}
+.callout>p:first-child>strong:first-child{display:block;font:700 8pt "Inter Tight";letter-spacing:.08em;text-transform:uppercase;margin-bottom:1mm}
+.callout.example{border-left-color:var(--navy)}
+.callout.takeaway{background:var(--navy);border-left-color:var(--orange);color:#fff}
+.callout.takeaway strong{color:var(--orange)}
+.callout.tip{border-left-color:var(--orange);background:var(--warm)}
+.callout.tip strong{color:var(--warm-ink)}
+.callout.fact,.callout.think,.callout.further{border-left-color:var(--sky)}
+.callout.note,.callout.final{border-left-color:var(--cool)}
+.callout.warning{border-left-color:var(--red);background:var(--red-bg)}
+.callout.warning strong{color:var(--red)}
+
+.tryit{display:block;margin:4mm 0;padding:3mm 5mm;border:1.5pt solid var(--orange);border-radius:2mm;text-decoration:none;color:var(--ink);break-inside:avoid}
+.tryit .k{display:inline-block;font:700 7.5pt "Inter Tight";letter-spacing:.08em;text-transform:uppercase;background:var(--orange);color:var(--navy);border-radius:4mm;padding:.6mm 2.5mm;margin-right:2mm}
+.tryit b{font-size:10.5pt;color:var(--navy)}
+.tryit .d{display:block;color:var(--muted);font-size:9.5pt;margin-top:1mm}
+.tryit .go{display:none}
+.tryit .url{display:block;font-size:9pt;font-weight:600;color:var(--navy);margin-top:1mm}
+
+.fig{margin:5mm 0;break-inside:avoid}
+.fig figcaption{font-size:8.5pt;line-height:1.45;color:var(--muted);margin-top:2mm}
+.fig-svg{width:100%;height:auto}
+
+.stub-doc{font-size:8.5pt;border:.75pt solid var(--line)}
+.stub-top{display:flex;justify-content:space-between;background:var(--navy);color:#fff;padding:2mm 3mm}
+.stub-top span{color:#B9C6DB}
+.stub-meta{display:table;width:100%;box-sizing:border-box;margin:0;padding:2mm 3mm;border-bottom:.75pt solid var(--line)}
+.stub-meta div{display:table-cell}
+.stub-meta dt{font-size:6.5pt;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.stub-meta dd{margin:0;font-weight:600}
+.stub-tables{display:block;padding:1mm 3mm}
+.stub-tables table{border-collapse:collapse;width:100%;margin:1mm 0 2mm}
+.stub-tables th,.stub-tables td{text-align:right;padding:1mm .5mm;border-bottom:.5pt solid var(--line)}
+.stub-tables th:first-child,.stub-tables td:first-child{text-align:left}
+.stub-tables th{font-size:6.5pt;text-transform:uppercase;color:var(--muted)}
+.stub-tables tfoot td{font-weight:700;border-top:1pt solid var(--ink);border-bottom:0}
+.stub-net{display:flex;justify-content:flex-end;gap:4mm;align-items:baseline;padding:2mm 3mm;background:var(--warm);flex-wrap:wrap}
+.stub-net b{font-size:12pt;color:var(--navy)}
+.stub-net .ytd{width:100%;text-align:right;font-size:7pt;color:var(--muted)}
+
+.debt-compare{display:flex;gap:5mm}
+.dcol{flex:1}
+.dcol h4{margin:0;font-size:10pt;text-transform:uppercase;letter-spacing:.04em}
+.dcol>p{margin:.5mm 0 2mm;color:var(--muted);font-size:8.5pt}
+.dcol ol{list-style:none;margin:0;padding:0}
+.dcol li{display:flex;gap:3mm;background:var(--sunk);padding:2mm 3mm;margin-bottom:2mm;font-size:9pt}
+.dcol li:first-child{background:var(--warm);border:1pt solid var(--orange)}
+.dcol .n{flex:none;width:5.5mm;height:5.5mm;border-radius:50%;background:var(--navy);color:#fff;text-align:center;line-height:5.5mm;font-weight:700;font-size:8pt}
+.dcol li div{display:flex;flex-direction:column}
+.dcol em{font-style:normal;font-size:7pt;font-weight:700;color:var(--warm-ink)}
+.dcol li span{font-size:8pt;color:var(--muted)}
+
+/* back cover */
+.back{page:back;break-before:page;height:279.4mm;position:relative;string-set:section ""}
+.back img{position:absolute;left:50%;top:95mm;width:90mm;margin-left:-45mm}
+.back p{position:absolute;left:0;right:0;top:140mm;text-align:center;font-size:10pt;color:var(--muted)}
+.back::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9mm;background:var(--orange)}
