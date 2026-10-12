@@ -243,7 +243,7 @@ window.PFL = (function () {
     footer.innerHTML =
       '<div class="wrap"><div><h3 data-i18n="foot_h"></h3><p data-i18n="foot_1"></p><p data-i18n="foot_2"></p><p data-i18n="foot_3"></p></div>' +
       '<div class="foot-side">' + (src ? '<div><h3 data-i18n="src_h"></h3><ul class="sources">' + src + '</ul></div>' : '') +
-      (/teachers\.html$/.test(location.pathname) ? '' : '<a class="teach-box" href="teachers.html"><b data-i18n="for_teachers"></b><span data-i18n="teach_box"></span><em data-i18n="teach_go"></em></a>') +
+      (/teachers\.html$/.test(location.pathname) || document.querySelector('.teach-cta') ? '' : '<a class="teach-box" href="teachers.html"><b data-i18n="for_teachers"></b><span data-i18n="teach_box"></span><em data-i18n="teach_go"></em></a>') +
       '</div></div>' +
       '<div class="foot-bar"><div class="wrap"><img src="assets/img/c4fe-logo-reverse.png" width="97" height="36" alt="UTEP Center for Free Enterprise"><span data-i18n="foot_unit"></span><a href="mailto:c4fe@utep.edu">c4fe@utep.edu</a></div></div>';
 
