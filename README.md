@@ -64,6 +64,10 @@ The session readings are published twice from one source: as web pages (`session
   ```
 - **Add a session**: add its Markdown file, an entry in `SESSIONS` in `tools/build_readings.py`, a title in `assets/js/reading.js`, and a card on the landing page (`index.html`, `assets/js/home.js`).
 
+## Workshop slides
+
+`assets/pdf/slides-session-1.pdf` and `slides-session-2.pdf` are exported from the PowerPoint decks (the editable .pptx files and their speaker notes are kept off the public site). To update them, export a new PDF from PowerPoint and replace the file with the same name. They are linked from the teachers page.
+
 ## Visit counts
 
 Page views are counted with [GoatCounter](https://www.goatcounter.com/) (no cookies, no personal data). The dashboard is at https://c4fe.goatcounter.com. Every page loads the snippet just before `</body>`; reading pages get it from the template in `tools/build_readings.py`. A new page needs the same line:
