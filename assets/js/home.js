@@ -2,8 +2,8 @@
 (function () {
 const HOME_TEXT = {
  en:{
-  title:"Personal Financial Literacy Tools",
-  lede:"Interactive calculators that go with the C4FE Personal Financial Literacy Workshop. Change the numbers and see how borrowing, saving, and investing play out.",
+  title:"Personal Financial Literacy",
+  lede:"Workshop readings and interactive tools for the C4FE Personal Financial Literacy Workshop. Read each session online or as a PDF, then change the numbers and see how borrowing, saving, and investing play out.",
   tools_h:"Tools",
   read_h:"Workshop readings", read_go:"Read online or download the PDF →",
   r1_h:"Session 1: Budgeting, Saving, Debt, and Credit", r1_p:"Income and taxes, budgeting, saving, debt, credit cards, credit scores, and insurance.",
@@ -32,8 +32,8 @@ const HOME_TEXT = {
   about_2:"Its Personal Financial Literacy Workshop brings high school seniors to the UTEP campus for three sessions on budgeting, credit, borrowing, saving, and investing. The tools on this site go with the workshop readings, so students can try the ideas with their own numbers."
  },
  es:{
-  title:"Herramientas de educación financiera personal",
-  lede:"Calculadoras interactivas que acompañan el Taller de Educación Financiera Personal del C4FE. Cambia los números y descubre cómo funcionan los préstamos, el ahorro y la inversión.",
+  title:"Educación Financiera Personal",
+  lede:"Lecturas y herramientas interactivas del Taller de Educación Financiera Personal del C4FE. Lee cada sesión en línea o en PDF y luego cambia los números para descubrir cómo funcionan los préstamos, el ahorro y la inversión.",
   tools_h:"Herramientas",
   read_h:"Lecturas del taller", read_go:"Leer en línea o descargar el PDF →",
   r1_h:"Sesión 1: Presupuesto, ahorro, deudas y crédito", r1_p:"Ingresos e impuestos, presupuesto, ahorro, deudas, tarjetas de crédito, puntaje de crédito y seguros (en inglés).",

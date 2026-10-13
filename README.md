@@ -1,6 +1,6 @@
-# Personal Financial Literacy Tools — C4FE
+# Personal Financial Literacy — C4FE
 
-Interactive companion site for the **Personal Financial Literacy Workshop** of the Center for Free Enterprise (C4FE), Woody L. Hunt College of Business, The University of Texas at El Paso.
+Companion site (workshop readings and interactive tools) for the **Personal Financial Literacy Workshop** of the Center for Free Enterprise (C4FE), Woody L. Hunt College of Business, The University of Texas at El Paso.
 
 The site is educational only. It is not financial advice, and every page says so.
 

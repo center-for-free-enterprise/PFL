@@ -1,6 +1,6 @@
 {
-  "name": "C4FE Personal Financial Literacy Tools",
-  "short_name": "PFL Tools",
+  "name": "C4FE Personal Financial Literacy",
+  "short_name": "C4FE PFL",
   "start_url": "./",
   "display": "browser",
   "background_color": "#F6F6F4",

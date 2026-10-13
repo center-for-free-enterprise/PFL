@@ -94,7 +94,7 @@ PAGE = """<!doctype html>
 <title>Session {num} Reading · C4FE</title>
 <meta name="description" content="{desc}">
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="C4FE Personal Financial Literacy Tools">
+<meta property="og:site_name" content="C4FE Personal Financial Literacy">
 <meta property="og:title" content="Session {num}: {title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{site}{id}.html">

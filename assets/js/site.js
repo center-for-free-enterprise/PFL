@@ -8,7 +8,7 @@ window.PFL = (function () {
       site_name: "Personal Financial Literacy",
       all_tools: "← All tools",
       disc_title: "For learning only. ",
-      disc_short: "These tools are for the classroom, not financial advice. Rates and prices are examples, and real products include fees and terms these tools leave out. For real decisions, use official sources and the provider's own disclosures.",
+      disc_short: "This site is for the classroom, not financial advice. Rates and prices are examples, and real products include fees and terms left out here. For real decisions, use official sources and the provider's own disclosures.",
       foot_h: "Important",
       foot_1: "This site is an educational companion to the C4FE Personal Financial Literacy Workshop. Its purpose is teaching. It is not financial, legal, or tax advice, and it is not an offer of credit or of any financial product.",
       foot_2: "Results are simplified estimates. They rest on stated assumptions, leave out fees and taxes unless shown, and are rounded. Real outcomes can differ in important ways. Always read official disclosures before you sign or invest.",
@@ -30,7 +30,7 @@ window.PFL = (function () {
       logo_alt: "UTEP Center for Free Enterprise, Woody L. Hunt College of Business",
       print_btn: "Print results",
       share_btn: "Share", copy_btn: "Copy link", copied: "Link copied", copy_fail: "Copy the address from your browser's address bar",
-      share_text: "A free financial literacy tool from UTEP's Center for Free Enterprise",
+      share_text: "Free personal finance readings and tools from UTEP's Center for Free Enterprise",
       print_note: (url, date) => "Printed from " + url + " on " + date + ". For learning only; not financial advice.",
       for_teachers: "For teachers", teach_box: "Classroom activities, a QR code for your slides, and the workshop readings.", teach_go: "Open the teacher guide →", foot_unit: "Center for Free Enterprise · Woody L. Hunt College of Business · The University of Texas at El Paso"
     },
@@ -39,7 +39,7 @@ window.PFL = (function () {
       site_name: "Educación Financiera Personal",
       all_tools: "← Todas las herramientas",
       disc_title: "Solo con fines educativos. ",
-      disc_short: "Estas herramientas son para el aula, no asesoría financiera. Las tasas y los precios son ejemplos, y los productos reales incluyen cargos y condiciones que estas herramientas no consideran. Para decisiones reales, consulta fuentes oficiales y la información que te entregue el proveedor.",
+      disc_short: "Este sitio es para el aula, no asesoría financiera. Las tasas y los precios son ejemplos, y los productos reales incluyen cargos y condiciones que aquí no se consideran. Para decisiones reales, consulta fuentes oficiales y la información que te entregue el proveedor.",
       foot_h: "Importante",
       foot_1: "Este sitio es un complemento educativo del Taller de Educación Financiera Personal del C4FE. Su propósito es enseñar. No es asesoría financiera, legal ni fiscal, y no es una oferta de crédito ni de ningún producto financiero.",
       foot_2: "Los resultados son estimaciones simplificadas. Se basan en los supuestos indicados, no incluyen cargos ni impuestos salvo que se muestren, y están redondeados. Los resultados reales pueden ser muy distintos. Lee siempre la información oficial antes de firmar o invertir.",
@@ -61,7 +61,7 @@ window.PFL = (function () {
       logo_alt: "UTEP Center for Free Enterprise, Woody L. Hunt College of Business",
       print_btn: "Imprimir resultados",
       share_btn: "Compartir", copy_btn: "Copiar enlace", copied: "Enlace copiado", copy_fail: "Copia la dirección desde la barra de tu navegador",
-      share_text: "Una herramienta gratuita de educación financiera del Center for Free Enterprise de UTEP",
+      share_text: "Lecturas y herramientas gratuitas de educación financiera del Center for Free Enterprise de UTEP",
       print_note: (url, date) => "Impreso desde " + url + " el " + date + ". Solo con fines educativos; no es asesoría financiera.",
       for_teachers: "Para docentes", teach_box: "Actividades para la clase, un código QR para tus diapositivas y las lecturas del taller.", teach_go: "Abrir la guía docente →", foot_unit: "Center for Free Enterprise · Woody L. Hunt College of Business · The University of Texas at El Paso"
     }
